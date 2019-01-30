@@ -46,6 +46,11 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             font-size: 14px;
+                color: #1283f6 !important;
+        }
+        .custom-navbar{
+                background: white;
+                color: #007bff;
         }
     </style>
 
@@ -53,7 +58,7 @@
 
 </head>
 
-<body>
+<body class="color-theme-blue  push-content-right theme-light">
     <!-- Status bar overlay for full screen mode (PhoneGap) -->
     <div class="statusbar-overlay"></div>
 
@@ -71,16 +76,14 @@
         <!-- Your main view, should have "view-main" class -->
         <div class="view view-main">
             <!-- Top Navbar-->
-            <div class="navbar">
+            <div class="navbar custom-navbar">
                 <div class="navbar-inner">
-                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                    <div class="left">
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
                     <div class="center sliding">Friday</div>
                     <div class="right">
-                        <!--
-                          Right link contains only icon - additional "icon-only" class
-                          Additional "open-panel" class tells app to open panel when we click on this link
-                        -->
-                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                        
                     </div>
                 </div>
             </div>
@@ -93,15 +96,15 @@
                         <div class="content-sticky-footer">
                             <div class="background bg-170"><img src="img/background.png" alt=""></div>
                             <div class="w-100">
-                                <h1 class="text-center text-white title-background"><small>Welcome,<br></small>John Smith</h1>
+                                <h1 class="text-center text-white title-background"><small>Bienvenido<br></small>Uriel Velasquez</h1>
                                 <div class="carosel">
                                     <div class="swiper-container swiper-init swipermultiple">
                                         <div class="swiper-pagination"></div>
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <div class="swiper-content-block ">
-                                                    <h4 class="title-small-carousel">Completed</h4>
-                                                    <p>November 2018</p>
+                                                    <h4 class="title-small-carousel">Completado</h4>
+                                                    <p>Enero 2019</p>
                                                     <div class="gaugewrap">
                                                         <h2 class="title-number-carousel"><span class="text-primary">6</span><small>/8 Project</small></h2>
                                                         <div class="progress_profile1 gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
@@ -143,17 +146,17 @@
                                 </div>
                             </div>
 
-                            <h2 class="title-separator">Top On Going Projects</h2>
+                            <h2 class="title-separator">Tareas pendientes</h2>
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <a href="#" class="media">
                                         <div class="media-body">
-                                            <h5>Alpha School portal</h5>
-                                            <p>Start Date: 28, July 2018</p>
-                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">126</span><small>/208 Project</small></h2>
+                                            <h5>Enviar camaras a Cozumel</h5>
+                                            <p>Fecha de inicio: 30 enero 2018</p>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">En proceso</span><small></small></h2>
                                         </div>
                                         <div class="w-auto">
-                                            <small class="text-danger effort-time"> 2hrs  <i class="material-icons">arrow_drop_down</i></small>
+                                            <small class="text-danger effort-time"> Pendiente  <i class="material-icons">arrow_drop_down</i></small>
                                             
                                         </div>
                                     </a>
@@ -186,58 +189,20 @@
                                 </li>
                             </ul>
 
-                            <h2 class="title-separator">Latest Comments</h2>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#" class="media">
-                                        <div class="w-auto h-100">
-                                            <figure class="avatar avatar-40"><img src="img/user1.png" alt=""> </figure>
-                                        </div>
-                                        <div class="media-body">
-                                            <h5>John Doe <span class="status-online bg-success"></span></h5>
-                                            <p>My view is to create greate things </p>
-                                        </div>
+                            
 
-                                    </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#" class="media">
-                                        <div class="w-auto h-100">
-                                            <figure class="avatar avatar-40"><img src="img/user2.png" alt=""> </figure>
-                                        </div>
-                                        <div class="media-body">
-                                            <h5>Angeliina Hardy <span class="status-online bg-warning"></span></h5>
-                                            <p>My view is to create greate things </p>
-                                        </div>
-
-                                    </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#" class="media">
-                                        <div class="w-auto h-100">
-                                            <figure class="avatar avatar-40"><img src="img/user3.png" alt=""> </figure>
-                                        </div>
-                                        <div class="media-body">
-                                            <h5>Arnold Johnsons <span class="status-online bg-danger"></span></h5>
-                                            <p>My view is to create greate things </p>
-                                        </div>
-
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <h2 class="block-title">Trending Project</h2>
+                            <h2 class="title-separator">Ultimos proyectos</h2>
                             <div class="row mx-0">
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-body">
                                             <a href="#" class="media">
                                                 <div class="media-body">
-                                                    <h5>Karla Sports App </h5>
-                                                    <p>25 November 2018</p>
+                                                    <h5>Instalación de camaras Cozumel </h5>
+                                                    <p>9 Febrero 2019</p>
                                                 </div>
                                                 <div class="w-auto h-100">
-                                                    <span class="text-primary">Completed</span>
+                                                    <span class="text-danger">En proceso</span>
                                                 </div>
                                             </a>
                                         </div>
@@ -260,36 +225,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr class="my-4">
-                            <div class="block-title text-center">About us</div>
-                            <h2 class="text-center mt-0 mb-4">We are MobileUX</h2>
                             <div class="row mx-0">
-                                <div class="col">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
-                                        <br>
-                                        <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
-                                </div>
-                                <div class="col col-sm-2">
-                                    <figure class="m-0">
-                                        <img src="img/background.png" class="mw-100" alt="">
-                                    </figure>
-                                </div>
-                            </div>
-                            <br>
+                        <div class="col py-3">
+                            <a href="add-project.html" class="btn btn-block gradient border-0 z-3">Agregar Proyecto</a>
+                        </div>
+                    </div>
+                            
                         </div>
                        
                     </div>
                 </div>
             </div>
             <!-- Bottom Toolbar-->
+            <!--
             <div class="toolbar">
                 <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
+                   
+                    <a href="#" class="link">Agregar</a>
                     <a href="#" class="link">Link 2</a>
                 </div>
             </div>
+            -->
         </div>
     </div>
 
