@@ -34,6 +34,21 @@
     <link rel="stylesheet" href="vendor/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <style type="text/css">
+        .title-separator{       
+            margin: 30px 15px 20px 15px;
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, .54);
+            line-height: 16px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 14px;
+        }
+    </style>
+
 
 
 </head>
@@ -128,7 +143,7 @@
                                 </div>
                             </div>
 
-                            <h2 class="block-title">Top On Going Projects</h2>
+                            <h2 class="title-separator">Top On Going Projects</h2>
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <a href="#" class="media">
@@ -139,7 +154,7 @@
                                         </div>
                                         <div class="w-auto">
                                             <small class="text-danger effort-time"> 2hrs  <i class="material-icons">arrow_drop_down</i></small>
-                                            <div class="dynamicsparkline"></div>
+                                            
                                         </div>
                                     </a>
                                 </li>
@@ -152,7 +167,7 @@
                                         </div>
                                         <div class="w-auto">
                                             <small class="text-danger effort-time"> 2hrs  <i class="material-icons">arrow_drop_down</i></small>
-                                            <div class="dynamicsparkline"></div>
+                                            
                                         </div>
                                     </a>
                                 </li>
@@ -165,13 +180,13 @@
                                         </div>
                                         <div class="w-auto">
                                             <small class="text-success effort-time"> 2hrs  <i class="material-icons">arrow_drop_up</i></small>
-                                            <div class="dynamicsparkline"></div>
+                                            
                                         </div>
                                     </a>
                                 </li>
                             </ul>
 
-                            <h2 class="block-title">Latest Comments</h2>
+                            <h2 class="title-separator">Latest Comments</h2>
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <a href="#" class="media">
@@ -294,29 +309,24 @@
     <script type="text/javascript" src="js/mainController.js"></script>
      <script>
         $(window).on('load', function() {
-            /* sparklines */
-            $(".dynamicsparkline").sparkline([5, 6, 7, 2, 0, 4, 2, 5, 6, 7, 2, 0, 4, 2, 4], {
-                type: 'bar',
-                height: '25',
-                barSpacing: 2,
-                barColor: '#a9d7fe',
-                negBarColor: '#ef4055',
-                zeroColor: '#ffffff'
-            });
+            
 
             /* gauge chart circular progress */
             $('.progress_profile1').circleProgress({
                 fill: '#169cf1',
                 lineCap: 'butt'
             });
+
             $('.progress_profile2').circleProgress({
                 fill: '#f4465e',
                 lineCap: 'butt'
             });
+
             $('.progress_profile4').circleProgress({
                 fill: '#ffc000',
                 lineCap: 'butt'
             });
+
             $('.progress_profile3').circleProgress({
                 fill: '#00c473',
                 lineCap: 'butt'
