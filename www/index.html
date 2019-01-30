@@ -10,7 +10,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+ 
 
     <!-- Required meta tags-->
     <meta charset="utf-8">
@@ -21,16 +21,21 @@
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Your app title -->
-    <title>My App</title>
+    <title>Tareas </title>
 
     <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
-
+   
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
+    <link rel="stylesheet" href="vendor/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="css/styles.css">
+
+
 </head>
 
 <body>
@@ -54,7 +59,7 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding">Awesome App</div>
+                    <div class="center sliding">Friday</div>
                     <div class="right">
                         <!--
                           Right link contains only icon - additional "icon-only" class
@@ -70,11 +75,195 @@
                 <div data-page="index" class="page">
                     <!-- Scrollable page content -->
                     <div class="page-content">
-                        <div class="content-block">
-                            <p>Page content goes here</p>
-                            <!-- Link to another page -->
-                            <a href="about.html">About app</a>
+                        <div class="content-sticky-footer">
+                            <div class="background bg-170"><img src="img/background.png" alt=""></div>
+                            <div class="w-100">
+                                <h1 class="text-center text-white title-background"><small>Welcome,<br></small>John Smith</h1>
+                                <div class="carosel">
+                                    <div class="swiper-container swiper-init swipermultiple">
+                                        <div class="swiper-pagination"></div>
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="swiper-content-block ">
+                                                    <h4 class="title-small-carousel">Completed</h4>
+                                                    <p>November 2018</p>
+                                                    <div class="gaugewrap">
+                                                        <h2 class="title-number-carousel"><span class="text-primary">6</span><small>/8 Project</small></h2>
+                                                        <div class="progress_profile1 gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="swiper-content-block ">
+                                                    <h4 class="title-small-carousel">Overrun Project</h4>
+                                                    <p>November 2018</p>
+                                                    <div class="gaugewrap">
+                                                        <h2 class="title-number-carousel"><span class="text-danger">2</span><small>/3 Project</small></h2>
+                                                        <div class="progress_profile2  gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="swiper-content-block ">
+                                                    <h4 class="title-small-carousel">Good Job!</h4>
+                                                    <p>November 2018</p>
+                                                    <div class="gaugewrap">
+                                                        <h2 class="title-number-carousel"><span class="text-success">6</span><small>/8 Project</small></h2>
+                                                        <div class="progress_profile3  gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="swiper-content-block ">
+                                                    <h4 class="title-small-carousel">Critical Project</h4>
+                                                    <p>November 2018</p>
+                                                    <div class="gaugewrap">
+                                                        <h2 class="title-number-carousel"><span class="text-warning">2</span><small>/3 Project</small></h2>
+                                                        <div class="progress_profile4  gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2 class="block-title">Top On Going Projects</h2>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="media-body">
+                                            <h5>Alpha School portal</h5>
+                                            <p>Start Date: 28, July 2018</p>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">126</span><small>/208 Project</small></h2>
+                                        </div>
+                                        <div class="w-auto">
+                                            <small class="text-danger effort-time"> 2hrs  <i class="material-icons">arrow_drop_down</i></small>
+                                            <div class="dynamicsparkline"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="media-body">
+                                            <h5>RozR David</h5>
+                                            <p>Start Date: 28, July 2018</p>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">150</span><small>/218 Project</small></h2>
+                                        </div>
+                                        <div class="w-auto">
+                                            <small class="text-danger effort-time"> 2hrs  <i class="material-icons">arrow_drop_down</i></small>
+                                            <div class="dynamicsparkline"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="media-body">
+                                            <h5>Plasma Research group</h5>
+                                            <p>Start Date: 28, July 2018</p>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">100</span><small>/152 Project</small></h2>
+                                        </div>
+                                        <div class="w-auto">
+                                            <small class="text-success effort-time"> 2hrs  <i class="material-icons">arrow_drop_up</i></small>
+                                            <div class="dynamicsparkline"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <h2 class="block-title">Latest Comments</h2>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="w-auto h-100">
+                                            <figure class="avatar avatar-40"><img src="img/user1.png" alt=""> </figure>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>John Doe <span class="status-online bg-success"></span></h5>
+                                            <p>My view is to create greate things </p>
+                                        </div>
+
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="w-auto h-100">
+                                            <figure class="avatar avatar-40"><img src="img/user2.png" alt=""> </figure>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Angeliina Hardy <span class="status-online bg-warning"></span></h5>
+                                            <p>My view is to create greate things </p>
+                                        </div>
+
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="w-auto h-100">
+                                            <figure class="avatar avatar-40"><img src="img/user3.png" alt=""> </figure>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Arnold Johnsons <span class="status-online bg-danger"></span></h5>
+                                            <p>My view is to create greate things </p>
+                                        </div>
+
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <h2 class="block-title">Trending Project</h2>
+                            <div class="row mx-0">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <a href="#" class="media">
+                                                <div class="media-body">
+                                                    <h5>Karla Sports App </h5>
+                                                    <p>25 November 2018</p>
+                                                </div>
+                                                <div class="w-auto h-100">
+                                                    <span class="text-primary">Completed</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <i class="material-icons text-warning">star</i>
+                                                    <span class="post-seconds">4.9 <span>(254)</span></span>
+                                                </div>
+                                                <div class="col">
+                                                    <i class="material-icons text-grey">schedule</i>
+                                                    <span class="post-seconds">254 <span>hrs</span></span>
+                                                </div>
+                                                <div class="col">
+                                                    <i class="material-icons text-grey">monetization_on</i>
+                                                    <span class="post-seconds">4000 <span>$</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <div class="block-title text-center">About us</div>
+                            <h2 class="text-center mt-0 mb-4">We are MobileUX</h2>
+                            <div class="row mx-0">
+                                <div class="col">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
+                                        <br>
+                                        <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
+                                </div>
+                                <div class="col col-sm-2">
+                                    <figure class="m-0">
+                                        <img src="img/background.png" class="mw-100" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                            <br>
                         </div>
+                       
                     </div>
                 </div>
             </div>
@@ -91,7 +280,64 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+    <!-- Cookie jquery file -->
+    <script src="vendor/cookie/jquery.cookie.js"></script>
+    <!-- sparklines chart jquery file -->
+    <script src="vendor/sparklines/jquery.sparkline.min.js"></script>
+    <!-- Circular progress gauge jquery file -->
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <!-- Swiper carousel jquery file -->
+    <script src="vendor/swiper/js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/mainController.js"></script>
+     <script>
+        $(window).on('load', function() {
+            /* sparklines */
+            $(".dynamicsparkline").sparkline([5, 6, 7, 2, 0, 4, 2, 5, 6, 7, 2, 0, 4, 2, 4], {
+                type: 'bar',
+                height: '25',
+                barSpacing: 2,
+                barColor: '#a9d7fe',
+                negBarColor: '#ef4055',
+                zeroColor: '#ffffff'
+            });
+
+            /* gauge chart circular progress */
+            $('.progress_profile1').circleProgress({
+                fill: '#169cf1',
+                lineCap: 'butt'
+            });
+            $('.progress_profile2').circleProgress({
+                fill: '#f4465e',
+                lineCap: 'butt'
+            });
+            $('.progress_profile4').circleProgress({
+                fill: '#ffc000',
+                lineCap: 'butt'
+            });
+            $('.progress_profile3').circleProgress({
+                fill: '#00c473',
+                lineCap: 'butt'
+            });
+
+            /*Swiper carousel */
+            var mySwiper = new Swiper('.swiper-container', {
+                slidesPerView: 2,
+                spaceBetween: 0,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                }
+            });
+            /* tooltip */
+            $(function() {
+                $('[data-toggle="tooltip"]').tooltip()
+            });
+        });
+
+    </script>
 </body>
 
 </html>
