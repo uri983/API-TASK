@@ -33,33 +33,7 @@
     <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
     <link rel="stylesheet" href="vendor/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <style type="text/css">
-        .title-separator{       
-            margin: 30px 15px 20px 15px;
-            text-transform: uppercase;
-            color: rgba(0, 0, 0, .54);
-            line-height: 16px;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            font-size: 14px;
-                color: #1283f6 !important;
-        }
-        .custom-navbar{
-                background: white;
-                color: #007bff;
-        }
-        .btn-custom {
-            background-image: -moz-linear-gradient( 63deg, rgb(18, 131, 246) 0%, rgb(136, 17, 211) 100%);
-            background-image: -webkit-linear-gradient( 63deg, rgb(18, 131, 246) 0%, rgb(136, 17, 211) 100%);
-            background-image: -ms-linear-gradient( 63deg, rgb(18, 131, 246) 0%, rgb(136, 17, 211) 100%);
-            color: #ffffff;
-        }
-    </style>
-
+    <link rel="stylesheet" href="css/custom-style.css">
 
 
 </head>
@@ -71,10 +45,80 @@
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
     <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-        <div class="content-block">
-            <p>Left panel content goes here</p>
+    <div class="panel panel-left panel-reveal sidebar sidebar-left">
+        <div class="profile-link">
+                <a href="#" class="media">
+                    <div class="w-auto h-100">
+                        <figure class="avatar avatar-40"><img src="img/user1.png" alt=""> </figure>
+                    </div>
+                    <div class="media-body">
+                        <h5>John Doe <span class="status-online bg-success"></span></h5>
+                        <p>India</p>
+                    </div>
+                </a>
         </div>
+        <nav class="sideMenu">
+                <ul class="sideMenu-nav">
+                    
+                    <li class="nav-item">
+                        <a href="index.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">poll</i> Dashboard
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">add_shopping_cart</i> Projects
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="project-detail.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">filter_none</i> Project Details
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="user-profile.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">person</i> User Profile
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="aboutus.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">domain</i> About
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="colorscheme.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">format_color_fill</i> Color Scheme
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="component.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">pages</i> Component
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="404.html" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">warning</i> Default Route (404)
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
     </div>
 
     <!-- Views -->
@@ -205,35 +249,37 @@
                             <h2 class="title-separator">Proyectos en proceso</h2>
                             <div class="row mx-0">
                                 <div class="col">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <a href="#" class="media">
-                                                <div class="media-body">
-                                                    <h5>Instalación de camaras Cozumel </h5>
-                                                    <p>9 Febrero 2019</p>
-                                                </div>
-                                                <div class="w-auto h-100">
-                                                    <span class="text-danger">En proceso</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <i class="material-icons text-warning">star</i>
-                                                    <span class="post-seconds">4.9 <span>(254)</span></span>
-                                                </div>
-                                                <div class="col">
-                                                    <i class="material-icons text-grey">schedule</i>
-                                                    <span class="post-seconds">254 <span>hrs</span></span>
-                                                </div>
-                                                <div class="col">
-                                                    <i class="material-icons text-grey">monetization_on</i>
-                                                    <span class="post-seconds">4000 <span>$</span></span>
+                                    <a href="projectDetail.html">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <a href="#" class="media">
+                                                    <div class="media-body">
+                                                        <h5>Instalación de camaras Cozumel </h5>
+                                                        <p>9 Febrero 2019</p>
+                                                    </div>
+                                                    <div class="w-auto h-100">
+                                                        <span class="text-danger">En proceso</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <i class="material-icons text-warning">star</i>
+                                                        <span class="post-seconds">4.9 <span>(254)</span></span>
+                                                    </div>
+                                                    <div class="col">
+                                                        <i class="material-icons text-grey">schedule</i>
+                                                        <span class="post-seconds">254 <span>hrs</span></span>
+                                                    </div>
+                                                    <div class="col">
+                                                        <i class="material-icons text-grey">monetization_on</i>
+                                                        <span class="post-seconds">4000 <span>$</span></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                     <div class="card">
                                         <div class="card-body">
                                             <a href="#" class="media">
