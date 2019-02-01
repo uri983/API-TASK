@@ -15,6 +15,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.task.api"
+        },
+        "cordova-plugin-spinner": {
+            "PACKAGE_NAME": "com.task.api"
         }
     },
     "dependent_plugins": {}

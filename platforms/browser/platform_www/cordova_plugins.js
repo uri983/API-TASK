@@ -7,6 +7,14 @@ module.exports = [
         "clobbers": [
             "window.StatusBar"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-spinner/www/spinner-plugin.js",
+        "id": "cordova-plugin-spinner.SpinnerPlugin",
+        "pluginId": "cordova-plugin-spinner",
+        "clobbers": [
+            "SpinnerPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -14,7 +22,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-console": "1.0.7",
-    "cordova-plugin-statusbar": "1.0.1"
+    "cordova-plugin-statusbar": "1.0.1",
+    "cordova-plugin-spinner": "1.1.0"
 }
 // BOTTOM OF METADATA
 });
