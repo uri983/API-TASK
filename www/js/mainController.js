@@ -1,5 +1,5 @@
 // Initialize app
-var myApp = new Framework7({swipeBackPage:false,swipePanel:false});
+var myApp = new Framework7({swipeBackPage:false,swipePanel:false,fastClicks: false});
 
 
 // If we need to use custom DOM library, let's save it to $$ variable:
@@ -24,7 +24,7 @@ $$(document).on('deviceready', function() {
 
 // Option 1. Using page callback for page (for "about" page in this case) (recommended way):
 myApp.onPageInit('projectDetail', function (page) {
-    alert('hola');
+   
 
 })
 

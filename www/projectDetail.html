@@ -1,83 +1,86 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
 
 <!-- Top Navbar-->
-<div class="navbar">
-    <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-            </a>
-        </div>
-        <div class="center sliding">About</div>
-        <div class="right">
-            <!--<a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>-->
-        </div>
-    </div>
-</div>
+
 <div class="pages">
     <div data-page="projectDetail" class="page">
+        
+        <div class="navbar custom-navbar">
+                <div class="navbar-inner">
+                            <div class="left">
+                                <a href="#" class="back link">
+                                    <i class="icon icon-back"></i>
+                                    <span>Atras</span>
+                                </a>
+                            </div>
+                            <div class="center sliding">Detalles de proyecto</div>
+                            <div class="right">
+                                
+                            </div>
+                </div>
+        </div>
         <div class="page-content">
-            <div class="content-block">
+            <div class="">
                 <div class="content-sticky-footer">
-                            <div class="background bg-170"><img src="img/background.png" alt=""></div>
-                            <div class="w-100">
-                                <h1 class="text-center text-white title-background"><small>Bienvenido<br></small>Uriel Velasquez</h1>
-                                <div class="carosel">
-                                    <div class="swiper-container swiper-init swipermultiple">
-                                        <div class="swiper-pagination"></div>
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <div class="swiper-content-block ">
-                                                    <h4 class="title-small-carousel">Completado</h4>
-                                                    <p>Enero 2019</p>
-                                                    <div class="gaugewrap">
-                                                        <h2 class="title-number-carousel"><span class="text-primary">6</span><small>/8 Project</small></h2>
-                                                        <div class="progress_profile1 gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="swiper-content-block ">
-                                                    <h4 class="title-small-carousel">Overrun Project</h4>
-                                                    <p>November 2018</p>
-                                                    <div class="gaugewrap">
-                                                        <h2 class="title-number-carousel"><span class="text-danger">2</span><small>/3 Project</small></h2>
-                                                        <div class="progress_profile2  gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="swiper-content-block ">
-                                                    <h4 class="title-small-carousel">Good Job!</h4>
-                                                    <p>November 2018</p>
-                                                    <div class="gaugewrap">
-                                                        <h2 class="title-number-carousel"><span class="text-success">6</span><small>/8 Project</small></h2>
-                                                        <div class="progress_profile3  gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="swiper-content-block ">
-                                                    <h4 class="title-small-carousel">Critical Project</h4>
-                                                    <p>November 2018</p>
-                                                    <div class="gaugewrap">
-                                                        <h2 class="title-number-carousel"><span class="text-warning">2</span><small>/3 Project</small></h2>
-                                                        <div class="progress_profile4  gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
-                                                    </div>
-                                                </div>
+                    <div class="background bg-170"><img src="img/background.png" alt=""></div>
+                    <div class="row mx-0">
+                        <div class="col mt-3">
+                            <div class="card z2">
+                                <div class="card-header">
+                                    <a href="#" class="media">
+                                        <div class="media-body">
+                                            <h5>Instalación de camaras cozumel</h5>
+                                            <p>Inicio: 28, enero 2019</p>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">10</span><small>/15 Tareas</small></h2>
+                                        </div>
+                                        <div class="w-auto">
+                                            <small class="text-success effort-time mt-2"> En proceso  </small>
+                                            <div class="dynamicsparkline">
+                                                <canvas width="88" height="25"></canvas>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
+                                <div class="card-body p-0">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link border-primary active show" data-toggle="tab" href="#chart" role="tab" aria-selected="true">Tab 1</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link border-primary" data-toggle="tab" href="#tables" role="tab" aria-selected="false">Tab 2</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link border-primary" data-toggle="tab" href="#empty" role="tab" aria-selected="false">Tab 3</a>
+                                        </li>
+                                    </ul>
+                                    <!-- tabs content start here -->
+                                    <div class="tab-content p-3">
+                                        <div class="tab-pane active" id="chart" role="tabpanel">
+                                            <div class="chart_div" id="chart_div"></div>
+                                        </div>
+                                        <div class="tab-pane" id="tables" role="tabpanel">
+                                            Tab 2
+                                        </div>
+                                        <div class="tab-pane" id="empty" role="tabpanel">
+                                            Tab 3
+                                        </div>
+                                    </div>
+                                    <!-- tabs content end here -->
+                                </div>
+                                
                             </div>
-
-                            <div class="col py-3">
-                                <a href="add-project.html" class="btn btn-block btn-custom border-0 z-3">Agregar Proyecto</a>
-                            </div>
-
-                            <h2 class="title-separator">Tareas pendientes</h2>
-                            <ul class="list-group">
+                        </div>
+                    </div>
+                    <br>
+                    <h2 class="block-title">Descripción</h2>
+                    <div class="row mx-0">
+                        <div class="col">
+                            <p>Coordinar la implementación de camaras para el muelle de san miguel de cozumel en su primera etapa, de igual forma, verificar que todos los videos de vigilancia se almeacenene de forma correcta</p>
+                        </div>
+                    </div>
+                    <br>
+                    <h2 class="block-title">Actividades</h2>
+                    <ul class="list-group">
                                 <li class="list-group-item">
                                     <a href="#" class="media">
                                         <div class="media-body">
@@ -118,82 +121,32 @@
                                         </div>
                                     </a>
                                 </li>
-                            </ul>
+                    </ul>
 
-                            
+                    <h2 class="block-title">Miembros del proyecto</h2>
+                    <div class="row mx-0">
+                        <div class="col">
+                            <figure class="avatar avatar-40" data-toggle="tooltip" data-placement="top" title="Arnold Arnor"><img src="img/user1.png" alt=""> </figure>
+                            <figure class="avatar avatar-40" data-toggle="tooltip" data-placement="top" title="Hillary Coloniel"><img src="img/user2.png" alt=""> </figure>
+                            <figure class="avatar avatar-40" data-toggle="tooltip" data-placement="top" title="Ven Darwin"><img src="img/user3.png" alt=""> </figure>
+                        </div>
+                    </div>
 
-                            <h2 class="title-separator">Proyectos en proceso</h2>
-                            <div class="row mx-0">
+                    <!--<h2 class="block-title">Add Comment</h2>
+                    <div class="row mx-0">
+                        <div class="col">
+                            <div class="login-input-content">
+                                <textarea class="form-control" rows="3" placeholder="Write your comment here..."></textarea>
+                            </div>
+                            <div class="row mx-0 justify-content-end no-gutters">
                                 <div class="col">
-                                    
-                                        <div class="card">
-                                            <a href="projectDetail.html">
-                                            <div class="card-body">
-                                                <a href="projectDetail.html" class="media">
-                                                    <div class="media-body">
-                                                        <h5>Instalación de camaras Cozumel </h5>
-                                                        <p>9 Febrero 2019</p>
-                                                    </div>
-                                                    <div class="w-auto h-100">
-                                                        <span class="text-danger">En proceso</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="card-footer">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <i class="material-icons text-warning">star</i>
-                                                        <span class="post-seconds">4.9 <span>(254)</span></span>
-                                                    </div>
-                                                    <div class="col">
-                                                        <i class="material-icons text-grey">schedule</i>
-                                                        <span class="post-seconds">254 <span>hrs</span></span>
-                                                    </div>
-                                                    <div class="col">
-                                                        <i class="material-icons text-grey">monetization_on</i>
-                                                        <span class="post-seconds">4000 <span>$</span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </a>
-                                        </div>
-                                    
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <a href="#" class="media">
-                                                <div class="media-body">
-                                                    <h5>Instalación de camaras Cozumel </h5>
-                                                    <p>9 Febrero 2019</p>
-                                                </div>
-                                                <div class="w-auto h-100">
-                                                    <span class="text-danger">En proceso</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <i class="material-icons text-warning">star</i>
-                                                    <span class="post-seconds">4.9 <span>(254)</span></span>
-                                                </div>
-                                                <div class="col">
-                                                    <i class="material-icons text-grey">schedule</i>
-                                                    <span class="post-seconds">254 <span>hrs</span></span>
-                                                </div>
-                                                <div class="col">
-                                                    <i class="material-icons text-grey">monetization_on</i>
-                                                    <span class="post-seconds">4000 <span>$</span></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a href="javascript:void(0)" class="btn btn-block gradient border-0 z-3">Submit</a>
                                 </div>
                             </div>
-                            <div class="row mx-0">
-                        
-                    </div>
-                            
                         </div>
+                    </div>-->
+                    <br>
+                </div>
             </div>
         </div>
     </div>
