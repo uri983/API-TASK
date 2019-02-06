@@ -8,7 +8,8 @@ var $$ = Dom7;
 // Add view
 var mainView = myApp.addView('.view-main', {
     // Because we want to use dynamic navbar, we need to enable it for this view:
-    dynamicNavbar: true
+    dynamicNavbar: true,
+    pushState    : true,
 });
 
 
@@ -16,7 +17,18 @@ var mainView = myApp.addView('.view-main', {
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     jLogin.Init();
+    jProyecto.Init();
+    
+
+
 });
+
+
+myApp.onPageInit('index', function (page) {
+   
+   jProyecto.list_proyect('indexProjectList');
+
+}).trigger();
 
 
 // Now we need to run the code that will be executed only for About page.
@@ -24,7 +36,18 @@ $$(document).on('deviceready', function() {
 // Option 1. Using page callback for page (for "about" page in this case) (recommended way):
 myApp.onPageInit('projectDetail', function (page) {
    
+   let projectId = page.query.projectId;
+   jProyecto.projectGetDetail(projectId);
+   jTablero.Init(projectId);
+   jTablero.listTablero('TablerosList',projectId);
+   
 
+})
+
+
+myApp.onPageInit('Addproject', function (page) {
+   
+    jProyecto.Init();
 })
 
 // Option 2. Using one 'pageInit' event handler for all pages:
@@ -42,6 +65,10 @@ $$(document).on('pageInit', function (e) {
 $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     // Following code will be executed for page with data-page attribute equal to "about"
     myApp.alert('Here comes About page');
+    var page = e.detail.page;
+    var navbar = page.navbarInnerContainer;
+    console.log(navbar);
+    //myApp.showNavbar(navbar, true);
 })
 
 

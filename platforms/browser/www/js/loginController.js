@@ -34,7 +34,7 @@ var jLogin = function () {
         var $this = this;
         SpinnerPlugin.activityStart("Iniciando Sesión...");
         $$.ajax({
-            url     : 'http://192.168.1.33:8888/Friday/public/api/user/login',
+            url     : 'http://35.211.157.80/appmanager/api/user/login',
             method  : 'POST',
             dataType: 'json',
             data:{'email':$this.user.val(),'password':$this.password.val()},
@@ -47,7 +47,7 @@ var jLogin = function () {
                        window.localStorage.user_token    = response.data.token; 
                        myApp.closeModal();
                    }else{
-                      alert(response.data.message);
+                       myApp.alert(response.data.message,'Error');
                    }
                    SpinnerPlugin.activityStop();
             },
