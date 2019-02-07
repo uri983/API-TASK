@@ -64,7 +64,7 @@ myApp.onPageInit('tareas', function (page) {
 myApp.onPageInit('tareaDetail', function (page) {
    
    let tableroId = page.query.tableroId;
-   jTask.click_init();
+   jTask.event_click();
 })
 
 // Option 2. Using one 'pageInit' event handler for all pages:
