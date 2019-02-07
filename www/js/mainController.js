@@ -1,5 +1,32 @@
 // Initialize app
-var myApp = new Framework7({swipeBackPage:false,swipePanel:false,fastClicks: false});
+var myApp = new Framework7({swipeBackPage:false,
+  swipePanel:false,
+  fastClicks: false,
+  methods: {
+            onBackKeyDown: function() {
+
+            var leftp = app.panel.left && app.panel.left.opened;
+            var rightp = app.panel.right && app.panel.right.opened;
+
+            if ( leftp || rightp ) {
+
+                app.panel.close();
+                return false;
+            }else if ($$('.modal-in').length > 0) {
+              
+                app.dialog.close();
+                app.popup.close();
+                return false;
+            } else if (app.views.main.router.url == '/home/') {
+
+                    navigator.app.exitApp();
+            } else {
+
+                mainView.router.back();
+            }
+          }
+}
+});
 
 
 // If we need to use custom DOM library, let's save it to $$ variable:
@@ -20,12 +47,11 @@ var mainView = myApp.addView('.view-main', {
 $$(document).on('deviceready', function() {
     jLogin.Init();
     jProyecto.Init();
-
-
-    
-
-
 });
+
+function onBackKeyDown() {
+mainView.router.back()
+}
 
 
 myApp.onPageInit('index', function (page) {
