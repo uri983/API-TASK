@@ -2,30 +2,8 @@
 var myApp = new Framework7({swipeBackPage:false,
   swipePanel:false,
   fastClicks: false,
-  methods: {
-            onBackKeyDown: function() {
-
-            var leftp = app.panel.left && app.panel.left.opened;
-            var rightp = app.panel.right && app.panel.right.opened;
-
-            if ( leftp || rightp ) {
-
-                app.panel.close();
-                return false;
-            }else if ($$('.modal-in').length > 0) {
-              
-                app.dialog.close();
-                app.popup.close();
-                return false;
-            } else if (app.views.main.router.url == '/home/') {
-
-                    navigator.app.exitApp();
-            } else {
-
-                mainView.router.back();
-            }
-          }
-}
+  pushState    : true,
+  
 });
 
 
@@ -36,7 +14,6 @@ var $$ = Dom7;
 var mainView = myApp.addView('.view-main', {
     // Because we want to use dynamic navbar, we need to enable it for this view:
     dynamicNavbar: true,
-    pushState    : true,
     animateNavBackIcon: true,
     domCache: true
 });
@@ -51,6 +28,10 @@ $$(document).on('deviceready', function() {
 
 function onBackKeyDown() {
 mainView.router.back()
+}
+
+function onBackKeyDown() {
+  alert('Saliendo');
 }
 
 
