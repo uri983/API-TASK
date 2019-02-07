@@ -26,13 +26,28 @@ $$(document).on('deviceready', function() {
     jProyecto.Init();
 });
 
-function onBackKeyDown() {
-mainView.router.back()
-}
-
-function onBackKeyDown() {
-  alert('Saliendo');
-}
+document.addEventListener("backbutton", function(e){
+            e.preventDefault();
+ 
+            /* Si los menús laterales están abiertos */
+            if ($$('.panel.active').length > 0) {
+                myApp.closePanel();
+                return;
+            }
+           
+            /* Si hay un historial  */
+            var view = myApp.getCurrentView();
+            console.log(view);
+            if (!view) return;
+            if (view.history.length > 1) {
+                view.router.back();
+                return;
+            }
+            /* Si no se cumple nada de lo anterior, Cerramos App */
+            myApp.confirm('¿Quiere salir de la aplicación?', 'Atención!', function () {
+                navigator.app.exitApp();
+            });
+}, false);
 
 
 myApp.onPageInit('index', function (page) {
