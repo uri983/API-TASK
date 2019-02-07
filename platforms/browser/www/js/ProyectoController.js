@@ -150,7 +150,6 @@ var jProyecto = function () {
                   'PROY_PROYECTO'       : projectId,
                   },
             success: function(response){
-                   console.log(response);
                    $("#labelProjectName").html(response.data.project.PROY_NOMBRE);
                    SpinnerPlugin.activityStop();
            

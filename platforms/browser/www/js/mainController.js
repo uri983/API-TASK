@@ -55,13 +55,16 @@ myApp.onPageInit('Addproject', function (page) {
 })
 
 myApp.onPageInit('tareas', function (page) {
-   
-    
+
+   let tableroId = page.query.tableroId;
+   jTask.Init(tableroId);
+   //jTablero.tableroGetDetail(tableroId);
 })
 
 myApp.onPageInit('tareaDetail', function (page) {
    
-    
+   let tableroId = page.query.tableroId;
+   jTask.click_init();
 })
 
 // Option 2. Using one 'pageInit' event handler for all pages:

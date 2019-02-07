@@ -84,7 +84,7 @@ var jTablero = function () {
               var html = "";
               $.each(response.data.boards, function( index, value ) {
                
-               html+='<a href="tareas.html" data-view=".view-main">';
+               html+='<a href="tareas.html?tableroId='+value.TABL_TABLERO+'" data-view=".view-main">';
                html+='    <div class="card">';
                html+='       <div class="card-body">';
                html+='            <div class="media-body">';
@@ -109,6 +109,33 @@ var jTablero = function () {
               //alert('ErrorStatus: '+JSON.stringify(status));
             }
           }); 
+
+      },
+      tableroGetDetail:function (tableroId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+        SpinnerPlugin.activityStart("Cargando...");
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/board/show',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization": "Bearer " + token,
+                        "Accept"       : "application/json ",
+                        "Content-Type" : "application/x-www-form-urlencoded",},
+            data:{
+                        'TAB_TABLERO'   : tableroId,
+                  },
+            success: function(response){
+                   console.log(response);
+                   $("#labelBoardName").html(response.data.board.TAB_NOMBRE);
+                   SpinnerPlugin.activityStop();
+           
+            },
+            error: function(xhr, status){
+
+            }
+          });   
 
       },
 
