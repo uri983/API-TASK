@@ -10,6 +10,8 @@ var mainView = myApp.addView('.view-main', {
     // Because we want to use dynamic navbar, we need to enable it for this view:
     dynamicNavbar: true,
     pushState    : true,
+    animateNavBackIcon: true,
+    domCache: true
 });
 
 
@@ -18,6 +20,8 @@ var mainView = myApp.addView('.view-main', {
 $$(document).on('deviceready', function() {
     jLogin.Init();
     jProyecto.Init();
+
+
     
 
 
@@ -50,6 +54,16 @@ myApp.onPageInit('Addproject', function (page) {
     jProyecto.Init();
 })
 
+myApp.onPageInit('tareas', function (page) {
+   
+    
+})
+
+myApp.onPageInit('tareaDetail', function (page) {
+   
+    
+})
+
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('pageInit', function (e) {
     // Get page data from event data
@@ -64,10 +78,11 @@ $$(document).on('pageInit', function (e) {
 // Option 2. Using live 'pageInit' event handlers for each page
 $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     // Following code will be executed for page with data-page attribute equal to "about"
-    myApp.alert('Here comes About page');
+
     var page = e.detail.page;
     var navbar = page.navbarInnerContainer;
-    console.log(navbar);
+    $('#navmenu').html(navbar);
+
     //myApp.showNavbar(navbar, true);
 })
 

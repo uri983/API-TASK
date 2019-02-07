@@ -84,7 +84,7 @@ var jTablero = function () {
               var html = "";
               $.each(response.data.boards, function( index, value ) {
                
-               html+='<a href="about.html">';
+               html+='<a href="tareas.html" data-view=".view-main">';
                html+='    <div class="card">';
                html+='       <div class="card-body">';
                html+='            <div class="media-body">';
