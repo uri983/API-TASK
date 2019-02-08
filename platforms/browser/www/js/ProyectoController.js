@@ -63,29 +63,29 @@ var jProyecto = function () {
                 html+= '                                <a href="projectDetail.html?projectId='+ value.PROY_PROYECTO +'" class="media">';
                 html+= '                                    <div class="media-body">';
                 html+= '                                        <h5>'+value.PROY_NOMBRE+' </h5>';
-                html+= '                                        <p>'+value.PROY_FECHA_INICIO+'</p>';
+                html+= '                                        <p> Desde: '+value.PROY_FECHA_INICIO+'</p>';
                 html+= '                                    </div>';
                 html+= '                                    <div class="w-auto h-100">';
                 html+= '                                        <span class="text-danger">En proceso</span>';
                 html+= '                                    </div>'
                 html+= '                                </a>';
                 html+= '                            </div>';
-                html+= '                            <div class="card-footer">';
-                html+= '                                <div class="row">';
+               // html+= '                            <div class="card-footer">';
+               // html+= '                                <div class="row">';
                 //html+= '                                    <div class="col">';
                 //html+= '                                        <i class="material-icons text-warning">star</i>';
                 //html+= '                                        <span class="post-seconds">4.9 <span>(2)</span></span>';
                // html+= '                                    </div>';
-                html+= '                                    <div class="col">';
-                html+= '                                        <i class="material-icons text-grey">schedule</i>';
-                html+= '                                        <span class="post-seconds">254 <span>hrs</span></span>';
-                html+= '                                    </div>';
+               // html+= '                                    <div class="col">';
+                //html+= '                                        <i class="material-icons text-grey">schedule</i>';
+               // html+= '                                        <span class="post-seconds">254 <span>hrs</span></span>';
+                //html+= '                                    </div>';
                 //html+= '                                    <div class="col">';
                 //html+= '                                        <i class="material-icons text-grey">monetization_on</i>';
                 //html+= '                                        <span class="post-seconds">4000 <span>$</span></span>';
                 //html+= '                                    </div>';
-                html+= '                                </div>';
-                html+= '                            </div>';                           
+                //html+= '                                </div>';
+               // html+= '                            </div>';                           
                 html+= '                        </div>';
                 html+= '                    </a>';
 
