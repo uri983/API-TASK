@@ -1,3 +1,29 @@
+
+.chip {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    background: rgba(0,0,0,.37);
+    display: inline-block;
+    height: 23px;
+    line-height: 23px;
+    border-radius: 5px;
+    padding: 0 6px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin: 2px 0;
+}
+
+
+
 .modal {
     width: 270px;
     position: absolute;

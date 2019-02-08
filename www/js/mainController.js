@@ -80,6 +80,7 @@ myApp.onPageInit('tareas', function (page) {
 
    let tableroId = page.query.tableroId;
    jTask.Init(tableroId);
+   myApp.sortableOpen('.sortable');
    //jTablero.tableroGetDetail(tableroId);
 })
 

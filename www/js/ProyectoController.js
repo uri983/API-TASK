@@ -128,7 +128,7 @@ var jProyecto = function () {
            
             },
             error: function(xhr, status){
-              SpinnerPlugin.activityStop();
+            
               //alert('Error: '+JSON.stringify(xhr));
               //alert('ErrorStatus: '+JSON.stringify(status));
             }
