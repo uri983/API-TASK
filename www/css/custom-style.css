@@ -1,4 +1,38 @@
+label {
+  display: flex;
+  margin: .4em 0;
+  font-size: 1.2em;
+}
+label > input[type="text"] {
+  flex: 1;
+}
 
+input:first-child {
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  padding-left: .8em;
+}
+input:last-child {
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  padding-right: .8em;
+}
+input[type="button"] {
+  cursor: pointer;
+}
+input + input { border-left: none; }
+input[type="button"]:hover{
+  
+  color: black;
+}
+input[type="button"]:focus{
+ 
+  color:black;
+}
+input[type="text"]:focus {
+ 
+  color:black;
+}
 .chip {
     font-size: 14px;
     font-weight: 400;
