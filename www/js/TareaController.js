@@ -37,7 +37,12 @@ var jTask = function () {
          });
 
          $('#btnComment').on('click',function(){
-          $this.addComment(taskId);
+          if($('#inptComment').val() == ""){
+            myApp.alert('Escribe un comentario antes de enviar','Error');
+          }else{
+            $this.addComment(taskId);
+          }
+          
          });
              
 
@@ -195,7 +200,10 @@ var jTask = function () {
                     },
               success: function(response){
                      if(response.success == true){
+                        $('#inptComment').val('');
+                        jTask.list_comments('comentList',taskId);
                         myApp.alert(response.data.message,'Corecto');
+
                         
                      }else{
                         myApp.alert(response.data.message,'Error');
@@ -209,6 +217,41 @@ var jTask = function () {
               }
             });        
      
+      },
+      list_comments: function(DomElement,taskId){
+        var $this = this;
+        var token = window.localStorage.user_token;
+
+          $$.ajax({
+              url     : 'http://35.211.157.80/appmanager/api/comment/index',
+              method  : 'POST',
+              dataType: 'json',
+              headers : {"Authorization": "Bearer " + token,
+                         "Accept"       : "application/json ",
+                         "Content-Type" : "application/x-www-form-urlencoded",},
+              data    : {'COME_TAREA' : taskId},
+              success : function(response){
+                var html = "";
+                $.each(response.data.comments, function( index, value ) {
+                 
+                 html+='<div class="col-md-12">';
+                 html+='  <h5 style="    font-size: 15px;">'+value.name+' </h5>';
+                 html+='  <p>'+value.COME_TEXTO+'</p>';
+                 html+='</div>';
+                
+                
+                  
+
+                });
+
+                $('#'+DomElement).html(html);
+
+              },
+              error: function(xhr, status){
+                //alert('Error: '+JSON.stringify(xhr));
+                //alert('ErrorStatus: '+JSON.stringify(status));
+              }
+            }); 
       },
 
 

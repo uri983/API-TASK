@@ -91,6 +91,7 @@ myApp.onPageInit('tareaDetail', function (page) {
    let taskId = page.query.taskId;
    jTask.taskGetDetail(taskId);
    jTask.event_click(taskId);
+   jTask.list_comments('comentList',taskId);
 })
 
 // Option 2. Using one 'pageInit' event handler for all pages:
