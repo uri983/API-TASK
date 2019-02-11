@@ -1,38 +1,43 @@
-label {
-  display: flex;
-  margin: .4em 0;
-  font-size: 1.2em;
-}
-label > input[type="text"] {
-  flex: 1;
+.submit-comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-input:first-child {
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-  padding-left: .8em;
+.submit-comment input {
+    border-radius: 15px;
+    border: 2px solid #ededed;
+    padding: 7.5px 10px;
+    margin: 0 10px 0 0;
+    box-sizing: border-box;
+    width: 75%;
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
 }
-input:last-child {
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-  padding-right: .8em;
+
+
+button.submit-comment {
+    background: transparent;
+    border: 1px solid #aeaeae;
+    border-radius: 50%;
+    padding: 0;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-input[type="button"] {
-  cursor: pointer;
+
+button.submit-comment svg {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    max-width: 20px;
+    height: 20px;
 }
-input + input { border-left: none; }
-input[type="button"]:hover{
-  
-  color: black;
-}
-input[type="button"]:focus{
- 
-  color:black;
-}
-input[type="text"]:focus {
- 
-  color:black;
-}
+
 .chip {
     font-size: 14px;
     font-weight: 400;

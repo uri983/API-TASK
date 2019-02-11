@@ -1,0 +1,137 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
+
+<!-- Top Navbar-->
+
+<div class="pages">
+    <div class="navbar custom-navbar">
+                <div class="navbar-inner">
+                            <div class="left ">
+                                <a href="#" class="back link">
+                                    <i class="icon icon-back"></i>
+                                    <span>Atras</span>
+                                </a>
+                            </div>
+                            <div class="center ">DETALLES DEL PROYECTO</div>
+                            <div class="right ">
+                                
+                            </div>
+                </div>
+        </div>
+    <div data-page="projectDetail" class="page">
+        
+        
+        <div class="page-content">
+            <div class="">
+                <div class="content-sticky-footer">
+                    <div class="background bg-170"><img src="img/background.png" alt=""></div>
+                    <div class="row mx-0">
+                        <div class="col mt-3">
+                            <div class="card z2">
+                                <div class="card-header">
+                                    <a href="#" class="media">
+                                        <div class="media-body">
+                                            <h5 id="labelProjectName"></h5>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">10</span><small>/15 Tareas</small></h2>
+                                        </div>
+                                        <div class="w-auto">
+                                            <small class="text-success effort-time mt-2"> En proceso  </small>
+                                            <div class="dynamicsparkline">
+                                                <canvas width="88" height="25"></canvas>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                               
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row" style="margin-right: 0px;">
+                                <div class="col-xs-6"><h2 style="margin: 30px 15px 20px 30px;" class="title-separator">Miembros</h2></div>
+                                <div class="col-xs-6"><button id="btnAddMiembro"  style="margin: 20px 15px 20px 15px; font-size: 10px; line-height: 16px;" class="mb-2 btn btn-outline-primary open-prompt" data-toggle="modal" data-target="#addTableroModal">Agregar</button></div>
+                    </div>
+                    <div class="row mx-0">
+                        <div class="col">
+                           <div class="chip">
+                                <div class="chip-label">Uriel Velasquez</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row" style="margin-right: 0px;">
+                                <div class="col-xs-6"><h2 style="margin: 30px 15px 20px 30px;" class="title-separator">Tableros</h2></div>
+                                <div class="col-xs-6"><button id="btnAddTablero"  style="margin: 20px 15px 20px 15px; font-size: 10px; line-height: 16px;" class="mb-2 btn btn-outline-primary open-prompt" data-toggle="modal" data-target="#addTableroModal">Agregar</button></div>
+                    </div>
+
+                    <div class="row mx-0">
+                            <div class="col" id="TablerosList">
+                                <div class="block-title text-center" style="color: #8e8e93 !important;">Sin tableros</div> 
+                            </div>      
+                    </div>
+                    <!--
+                    <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="media-body">
+                                            <h5>Enviar camaras a Cozumel</h5>
+                                            <p>Fecha de inicio: 30 enero 2018</p>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">3</span><small>/5 
+                                            actividades</small></h2>
+                                        </div>
+                                        <div class="w-auto">
+                                            <small class="text-danger effort-time"> Pendiente  <i class="material-icons">arrow_drop_down</i></small>
+                                            
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="media-body">
+                                            <h5>Modulo de Consultas Brazaletes</h5>
+                                            <p>Fecha de inicio: 30 enero 2018</p>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">1</span><small>/2 actividades</small></h2>
+                                        </div>
+                                        <div class="w-auto">
+                                            <small class="text-danger effort-time"> Pendiente  <i class="material-icons">arrow_drop_down</i></small>
+                                            
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#" class="media">
+                                        <div class="media-body">
+                                            <h5>Envio de oficios IQIT</h5>
+                                            <p>Fecha de inicio: 31 enero 2018</p>
+                                            <h2 class="title-number-carousel color-primary"><span class="text-primary">1</span><small>/2 actividades</small></h2>
+                                        </div>
+                                        <div class="w-auto">
+                                            <small class="text-danger effort-time"> Pendiente  <i class="material-icons">arrow_drop_down</i></small>
+                                            
+                                        </div>
+                                    </a>
+                                </li>
+                    </ul>
+                    -->
+
+                    
+                    <!--<h2 class="block-title">Add Comment</h2>
+                    <div class="row mx-0">
+                        <div class="col">
+                            <div class="login-input-content">
+                                <textarea class="form-control" rows="3" placeholder="Write your comment here..."></textarea>
+                            </div>
+                            <div class="row mx-0 justify-content-end no-gutters">
+                                <div class="col">
+                                    <a href="javascript:void(0)" class="btn btn-block gradient border-0 z-3">Submit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
