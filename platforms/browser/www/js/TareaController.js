@@ -9,8 +9,8 @@ var jTask = function () {
         this.click_init();
       },
 
-      event_click: function(){
-
+      event_click: function(taskId){
+          var $this = this;
          $('#btnAddDocumento').on('click',function(){
 
            myApp.modal({
@@ -36,29 +36,10 @@ var jTask = function () {
 
          });
 
-         $('#btnAddComentarios').on('click',function(){
-             myApp.modal({
-                title:  'Agregar una comentario',
-                text: '',
-                afterText: 
-                           '<div class="form-group">'+
-                           '<textarea class="form-control" id="inptProjectDescription" id="exampleFormControlTextarea1" rows="3"></textarea>'+
-                           '</div>',
-                buttons: [
-                  {
-                    text: 'Cancelar'
-                  },
-                  {
-                    text: 'Añadir',
-                    bold: true,
-                    onClick: function () {
-                      
-                      $this.addProyect();
-                    }
-                  },
-                ]
-              });
+         $('#btnComment').on('click',function(){
+          $this.addComment(taskId);
          });
+             
 
       }, 
       click_init: function () {
@@ -193,6 +174,41 @@ var jTask = function () {
             }
           });   
 
+      },
+      addComment: function(taskId){
+          var $this = this;
+          var token = window.localStorage.user_token;
+          var user_id = window.localStorage.user_id;
+          
+          $$.ajax({
+              url     : 'http://35.211.157.80/appmanager/api/comment/store',
+              method  : 'POST',
+              dataType: 'json',
+              headers  : {"Authorization": "Bearer " + token,
+                          "Accept": "application/json ",
+                          "Content-Type": "application/x-www-form-urlencoded",},
+              data:{
+                    'COME_TAREA'  : taskId,
+                    'COME_USUARIO': user_id,
+                    'COME_TEXTO'  : $('#inptComment').val(),
+ 
+                    },
+              success: function(response){
+                     if(response.success == true){
+                        myApp.alert(response.data.message,'Corecto');
+                        
+                     }else{
+                        myApp.alert(response.data.message,'Error');
+                     }
+             
+              },
+              error: function(xhr, status){
+                
+                //alert('Error: '+JSON.stringify(xhr));
+                //alert('ErrorStatus: '+JSON.stringify(status));
+              }
+            });        
+     
       },
 
 

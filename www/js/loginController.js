@@ -45,6 +45,7 @@ var jLogin = function () {
                        window.localStorage.user_mail     = $this.user.val();
                        window.localStorage.user_password = $this.password.val(); 
                        window.localStorage.user_token    = response.data.token; 
+                       window.localStorage.user_id       = response.data.id;
                        myApp.closeModal();
                    }else{
                        myApp.alert(response.data.message,'Error');

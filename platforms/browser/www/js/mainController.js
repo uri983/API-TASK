@@ -90,7 +90,7 @@ myApp.onPageInit('tareaDetail', function (page) {
    
    let taskId = page.query.taskId;
    jTask.taskGetDetail(taskId);
-   jTask.event_click();
+   jTask.event_click(taskId);
 })
 
 // Option 2. Using one 'pageInit' event handler for all pages:
