@@ -63,7 +63,7 @@ var jProyecto = function () {
                 html+= '                                <a href="projectDetail.html?projectId='+ value.PROY_PROYECTO +'" class="media">';
                 html+= '                                    <div class="media-body">';
                 html+= '                                        <h5>'+value.PROY_NOMBRE+' </h5>';
-                html+= '                                        <p> Desde: '+value.PROY_FECHA_INICIO+'</p>';
+                html+= '                                        <p> Desde: '+value.PROY_CREATED_AT+'</p>';
                 html+= '                                    </div>';
                 html+= '                                    <div class="w-auto h-100">';
                 html+= '                                        <span class="text-danger">En proceso</span>';

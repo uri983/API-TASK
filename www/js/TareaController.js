@@ -1,16 +1,12 @@
 var jTask = function () {
   return {
 
-      Init : function(tableroId){
+      Init : function(tableroId,proyectoId){
 
         var $this = this;
         this.tablero             = tableroId;
-
-
-        
+        this.proyecto            = proyectoId;
         this.click_init();
-      
-     
       },
 
       event_click: function(){
@@ -71,12 +67,12 @@ var jTask = function () {
             myApp.modal({
               title:  'Agregar una tarea',
               text: '',
-              afterText: '<div class="form-group"><label for="textinput">Nombre de proyecto</label>'+
-                         '<input type="text" id="inptProjectName" class="form-control" >'+
+              afterText: '<div class="form-group"><label for="inptTaskName">Nombre de la tarea</label>'+
+                         '<input type="text" id="inptTaskName" name="inptTaskName" class="form-control" >'+
                          '</div>'+
                          '<div class="form-group">'+
-                         '<label for="exampleFormControlTextarea1">Descripción</label>'+
-                         '<textarea class="form-control" id="inptProjectDescription" id="exampleFormControlTextarea1" rows="3"></textarea>'+
+                         '<label for="inptTaskDescription">Descripción</label>'+
+                         '<textarea class="form-control" id="inptTaskDescription"  name="inptTaskDescription" rows="3"></textarea>'+
                          '</div>',
               buttons: [
                 {
@@ -87,13 +83,117 @@ var jTask = function () {
                   bold: true,
                   onClick: function () {
                     
-                    $this.addProyect();
+                    $this.addTask();
                   }
                 },
               ]
             });
          });
-      }
+      },
+      addTask: function(){
+        var $this = this;
+        var token = window.localStorage.user_token;
+        
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/task/store',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization": "Bearer " + token,
+                        "Accept": "application/json ",
+                        "Content-Type": "application/x-www-form-urlencoded",},
+            data:{
+                  'TARE_PROYECTO'   : $this.proyecto,
+                  'TARE_TABLERO'    : $this.tablero,
+                  'TARE_NOMBRE'     : $('#inptTaskName').val(),
+                  'TARE_DESCRIPCION': $('#inptTaskDescription').val(), 
+                  },
+            success: function(response){
+                   if(response.success == true){
+                      myApp.alert(response.data.message,'Corecto');
+                      jTask.list_task('taskList',$this.tablero);
+                   }else{
+                      myApp.alert(response.data.message,'Error');
+                   }
+           
+            },
+            error: function(xhr, status){
+              
+              //alert('Error: '+JSON.stringify(xhr));
+              //alert('ErrorStatus: '+JSON.stringify(status));
+            }
+          });        
+      },
+      list_task: function(DomElement,tableroId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/task/index',
+            method  : 'POST',
+            dataType: 'json',
+            headers : {"Authorization": "Bearer " + token,
+                       "Accept"       : "application/json ",
+                       "Content-Type" : "application/x-www-form-urlencoded",},
+            data    : {'TARE_TABLERO' : tableroId},
+            success : function(response){
+              var html = "";
+              $.each(response.data.tasks, function( index, value ) {
+               
+               html+='<li class="list-group-item">';
+               html+='   <a href="tareaDetail.html?taskId='+value.TARE_TAREA+'" class="media item-content">';
+               html+='        <div class="media-body">';
+               html+='            <h5>'+value.TARE_NOMBRE+'</h5>';
+               html+='            <p>Fecha de inicio: '+value.TARE_CREATED_AT+'</p>';
+               html+='            <p class="text-danger "> Pendiente </p>';
+               html+='         </div>';
+               html+='   </a>';
+               html+='   <div class="sortable-handler"></div>';
+               html+='</li>';
+              
+                
+
+              });
+
+              $('#'+DomElement).html(html);
+
+            },
+            error: function(xhr, status){
+              //alert('Error: '+JSON.stringify(xhr));
+              //alert('ErrorStatus: '+JSON.stringify(status));
+            }
+          }); 
+
+      },
+      taskGetDetail:function (taskId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+        SpinnerPlugin.activityStart("Cargando...");
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/task/show',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization": "Bearer " + token,
+                        "Accept"       : "application/json ",
+                        "Content-Type" : "application/x-www-form-urlencoded",},
+            data:{
+                        'TARE_TAREA'   : taskId,
+                  },
+            success: function(response){
+                   console.log(response);
+
+                   $("#labelTaskName").html(response.data.task.TARE_NOMBRE);
+                   $("#labelTaskDate").html(response.data.task.TARE_CREATED_AT);
+                   SpinnerPlugin.activityStop();
+           
+            },
+            error: function(xhr, status){
+
+            }
+          });   
+
+      },
 
 
 

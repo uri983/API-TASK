@@ -78,15 +78,18 @@ myApp.onPageInit('Addproject', function (page) {
 
 myApp.onPageInit('tareas', function (page) {
 
-   let tableroId = page.query.tableroId;
-   jTask.Init(tableroId);
+   let tableroId  = page.query.tableroId;
+   let proyectoId = page.query.proyectoId;
+   jTask.Init(tableroId,proyectoId);
    myApp.sortableOpen('.sortable');
-   //jTablero.tableroGetDetail(tableroId);
+   jTablero.tableroGetDetail(tableroId);
+   jTask.list_task('taskList',tableroId);
 })
 
 myApp.onPageInit('tareaDetail', function (page) {
    
-   let tableroId = page.query.tableroId;
+   let taskId = page.query.taskId;
+   jTask.taskGetDetail(taskId);
    jTask.event_click();
 })
 

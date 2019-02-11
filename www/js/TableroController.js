@@ -84,12 +84,11 @@ var jTablero = function () {
               var html = "";
               $.each(response.data.boards, function( index, value ) {
                
-               html+='<a href="tareas.html?tableroId='+value.TABL_TABLERO+'" data-view=".view-main">';
+               html+='<a href="tareas.html?tableroId='+value.TABL_TABLERO+'&proyectoID='+value.TABL_PROYECTO+'" data-view=".view-main">';
                html+='    <div class="card">';
                html+='       <div class="card-body">';
                html+='            <div class="media-body">';
                html+='                 <h5>'+value.TABL_NOMBRE+' </h5>';
-               html+='                 <p>Desde</p>';
                html+='            </div>';
                html+='            <div class="w-auto h-100">';
                html+='                 <span class="text-danger">En proceso</span>';
@@ -124,11 +123,11 @@ var jTablero = function () {
                         "Accept"       : "application/json ",
                         "Content-Type" : "application/x-www-form-urlencoded",},
             data:{
-                        'TAB_TABLERO'   : tableroId,
+                        'TABL_TABLERO'   : tableroId,
                   },
             success: function(response){
                    console.log(response);
-                   $("#labelBoardName").html(response.data.board.TAB_NOMBRE);
+                   $("#labelBoardName").html(response.data.board.TABL_NOMBRE);
                    SpinnerPlugin.activityStop();
            
             },
