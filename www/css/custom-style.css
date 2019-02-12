@@ -1,3 +1,14 @@
+
+
+.comm-textarea {
+    width:200px;
+    resize:none;
+    overflow:hidden;
+    font-size:18px;
+    height:1.1em;
+    padding:2px;
+}
+
 .navbar-fixed .page-content, .navbar-through .page-content {
     padding-bottom: 44px;
 }
@@ -25,7 +36,7 @@
     width: 100%;
 }
 
-.submit-comment input {
+.submit-comment text {
     border-radius: 15px;
     border: 2px solid #ededed;
     padding: 7.5px 10px;

@@ -237,7 +237,7 @@ var jTask = function () {
                  html+=' <li class="list-group-item">';
                  html+='    <a href="#" class="media">';
                  html+='        <div class="w-auto h-100">';
-                 html+='             <figure class="avatar avatar-40"><img src="img/user1.png" alt=""> </figure>';
+                 html+='             <figure class="avatar avatar-40"><img src="img/user4.png" alt=""> </figure>';
                  html+='        </div>';
                  html+='         <div class="media-body">';
                  html+='          <h5>'+value.name+' </h5>';

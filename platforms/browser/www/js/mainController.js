@@ -92,6 +92,32 @@ myApp.onPageInit('tareaDetail', function (page) {
    jTask.taskGetDetail(taskId);
    jTask.event_click(taskId);
    jTask.list_comments('comentList',taskId);
+
+
+
+  var span = $('<span>').css('display','inline-block').css('word-break','break-all').appendTo('body').css('visibility','hidden');
+
+  $('textarea').on({
+        input: function(){
+          var text = $(this).val();      
+          span.text(text);      
+          $(this).height(text ? span.height() : '1.1em');
+        },
+        focus: function(){
+                span.text($(this).text())
+                .width($(this).width())      
+                .css('font',$(this).css('font'));
+        },
+        keypress: function(e){
+            if(e.which == 13) e.preventDefault();
+        }
+  });
+
+
+
+
+
+
    /*$('#comentList').comments({
       profilePictureURL: 'https://viima-app.s3.amazonaws.com/media/public/defaults/user-icon.png',
       getComments: function(success, error) {
@@ -110,6 +136,8 @@ myApp.onPageInit('tareaDetail', function (page) {
       }
   });*/
 })
+
+
 
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('pageInit', function (e) {
