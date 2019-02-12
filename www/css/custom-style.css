@@ -1,3 +1,23 @@
+.navbar-fixed .page-content, .navbar-through .page-content {
+    padding-bottom: 44px;
+}
+
+.jquery-comments .commenting-field.main {
+    width: 100%;
+    display: none;
+}
+
+.jquery-comments ul.navigation {
+    width: 100%;
+    display: none;
+}
+
+
+.jquery-comments .data-container{
+    width: 100%;
+}
+
+
 .submit-comment {
     display: flex;
     justify-content: center;

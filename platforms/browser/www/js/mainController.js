@@ -92,6 +92,23 @@ myApp.onPageInit('tareaDetail', function (page) {
    jTask.taskGetDetail(taskId);
    jTask.event_click(taskId);
    jTask.list_comments('comentList',taskId);
+   /*$('#comentList').comments({
+      profilePictureURL: 'https://viima-app.s3.amazonaws.com/media/public/defaults/user-icon.png',
+      getComments: function(success, error) {
+          var commentsArray = [{
+              id: 1,
+              created: '2015-10-01',
+              textareaPlaceholderText:'Agrega un comentario',
+              enableEditing: false,
+              enableUpvoting: false,
+              content: 'Lorem ipsum dolort sit amet',
+              fullname: 'Simon Powell',
+              upvote_count: 2,
+              user_has_upvoted: false
+          }];
+          success(commentsArray);
+      }
+  });*/
 })
 
 // Option 2. Using one 'pageInit' event handler for all pages:
