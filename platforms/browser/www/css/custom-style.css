@@ -3,9 +3,9 @@
 .comm-textarea {
     width:200px;
     resize:none;
-    overflow:hidden;
+    /*overflow:hidden;*/
     font-size:18px;
-    height:1.1em;
+    height:2em;
     padding:2px;
 }
 
@@ -36,7 +36,7 @@
     width: 100%;
 }
 
-.submit-comment input {
+.submit-comment textarea {
     border-radius: 15px;
     border: 2px solid #ededed;
     padding: 7.5px 10px;

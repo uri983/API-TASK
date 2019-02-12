@@ -95,23 +95,33 @@ myApp.onPageInit('tareaDetail', function (page) {
 
 
 
-  //var span = $('<span>').css('display','inline-block').css('word-break','break-all').appendTo('body').css('visibility','hidden');
+   var span = $('<span>').css('display','inline-block').css('word-break','break-all').appendTo('body').css('visibility','hidden');
+   var toolbar = $('#comment_toolbar');
 
- /*$('textarea').on({
-        input: function(){
-          var text = $(this).val();      
-          span.text(text);      
-          $(this).height(text ? span.height() : '1.1em');
-        },
-        focus: function(){
-                span.text($(this).text())
-                .width($(this).width())      
-                .css('font',$(this).css('font'));
-        },
-        keypress: function(e){
-            if(e.which == 13) e.preventDefault();
-        }
-  });*/
+   $('textarea').on({
+          input: function(){
+            var text = $(this).val();      
+            span.text(text); 
+            console.log(span.height());  
+            console.log(span.height() + 20);   
+            $(this).height(text ? span.height(): '1.1em');
+            toolbar.height(text ? span.height() + 30: '1.1em');
+          },
+          focus: function(){
+                  //span.text($(this).text())
+                  //.width($(this).width())      
+                  //.css('font',$(this).css('font'));
+          },
+          keypress: function(e){
+              if(e.which == 13){
+                var text = $(this).val();      
+                span.text(text);
+
+                $(this).height(text ? span.height() : '1.1em');
+                toolbar.height(text ? span.height() + + 30 : '1.1em');
+              }
+          }
+    });
 
 
 
