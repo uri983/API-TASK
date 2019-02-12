@@ -95,9 +95,9 @@ myApp.onPageInit('tareaDetail', function (page) {
 
 
 
-  var span = $('<span>').css('display','inline-block').css('word-break','break-all').appendTo('body').css('visibility','hidden');
+  //var span = $('<span>').css('display','inline-block').css('word-break','break-all').appendTo('body').css('visibility','hidden');
 
-  $('textarea').on({
+ /*$('textarea').on({
         input: function(){
           var text = $(this).val();      
           span.text(text);      
@@ -111,7 +111,7 @@ myApp.onPageInit('tareaDetail', function (page) {
         keypress: function(e){
             if(e.which == 13) e.preventDefault();
         }
-  });
+  });*/
 
 
 
