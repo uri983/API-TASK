@@ -57,13 +57,14 @@ myApp.onPageInit('index', function (page) {
    
    jProyecto.list_proyect('indexProjectList');
 
-   $$('.projectCard').on('taphold', function () {
-    myApp.alert('Tap hold fired!');
-  });
+  
 
   $('#userNameMenu').html(window.localStorage.user_name);
   $('#userName').html('<small style=" font-size: 80%;">Bienvenido<br>'+ window.localStorage.user_name +'</small>');
    
+   $$('.projectCard').on('taphold', function () {
+    myApp.alert('Tap hold fired!');
+  });
    
 
 }).trigger();
