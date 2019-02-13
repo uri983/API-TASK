@@ -46,6 +46,9 @@ var jLogin = function () {
                        window.localStorage.user_password = $this.password.val(); 
                        window.localStorage.user_token    = response.data.token; 
                        window.localStorage.user_id       = response.data.id;
+                       window.localStorage.user_name     = response.data.name;
+                       $('#userNameMenu').html(window.localStorage.user_name);
+                       $('#userName').html('<small style=" font-size: 80%;" >Bienvenido<br>'+ window.localStorage.user_name +'</small>');
                        myApp.closeModal();
                    }else{
                        myApp.alert(response.data.message,'Error');

@@ -58,7 +58,7 @@ var jProyecto = function () {
               $.each(response.data.projects, function( index, value ) {
                 //alert( index + ": " + value );
                 html+= '<a href="projectDetail.html?projectId='+ value.PROY_PROYECTO +'">';
-                html+= '                        <div class="card">';                        
+                html+= '                        <div class="card projectCard">';                        
                 html+= '                            <div class="card-body">';
                 html+= '                                <a href="projectDetail.html?projectId='+ value.PROY_PROYECTO +'" class="media">';
                 html+= '                                    <div class="media-body">';

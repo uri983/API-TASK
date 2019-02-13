@@ -74,7 +74,53 @@ var jTask = function () {
                 },
               ]
             });
+            /*$("#inptTaskDescription").smention("http://localhost/Friday%20Api%20Task/www/lib/smention/get_users.php",{
+             extraParams : {"akey" : "avalue"}
+            });*/
+
+
+            $("#inptTaskDescription").mentiony({
+              popoverOffset:      {
+               x: 0,
+               y: 0
+              },
+              applyInitialSize:   true,
+              popover: '<div id="mentiony-popover-[ID]" style="left:0;" class="mentiony-popover"></div>',
+              listItem: '<li class="mentiony-item" data-item-id="">' +
+                        '<div class="row">' +
+                        '<div class="pl0 col-xs-9 col-sm-9 col-md-9 col-lg-9">' +
+                        '<p class="title">Company name</p>' +
+                        '<p class="help-block">Addition information</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</li>',
+
+              onDataRequest: function (mode, keyword, onDataRequestCompleteCallback) {
+                  var data = [
+                      { id:1, name:'Jose Luis Ku Salazar', 'avatar':'img/user4.png', 'info':'wicho' , href: '#'},
+                      { id:2, name:'Daniel Puc Aguilar', 'avatar':'img/user4.png', 'info':'labonita' , href: '#'},
+                      { id:3, name:'Wendy Jarillo', 'avatar':'img/user4.png', 'info':'wendy' , href: '#'},
+                      { id:3, name:'Jorge Chora', 'avatar':'img/user4.png', 'info':'chorita' , href: '#'},
+                  ];
+                  data = jQuery.grep(data, function( item ) {
+                      return item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1;
+                  });
+                  // Call this to populate mention.
+                  onDataRequestCompleteCallback.call(this, data);
+              },
+
+              });
+
+
+
          });
+
+         
+         
+
+        
+
+
       },
       addTask: function(){
         var $this = this;
@@ -171,6 +217,8 @@ var jTask = function () {
 
                    $("#labelTaskName").html(response.data.task.TARE_NOMBRE);
                    $("#labelTaskDate").html(response.data.task.TARE_CREATED_AT);
+                   $("#taskDetail").html(response.data.task.TARE_DESCRIPCION);
+                   
                    SpinnerPlugin.activityStop();
            
             },

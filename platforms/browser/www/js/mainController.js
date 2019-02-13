@@ -3,6 +3,9 @@ var myApp = new Framework7({swipeBackPage:false,
   swipePanel:false,
   fastClicks: false,
   pushState    : true,
+  touch: {
+    tapHold: true //enable tap hold events
+  },
   
 });
 
@@ -53,6 +56,15 @@ document.addEventListener("backbutton", function(e){
 myApp.onPageInit('index', function (page) {
    
    jProyecto.list_proyect('indexProjectList');
+
+   $$('.projectCard').on('taphold', function () {
+    myApp.alert('Tap hold fired!');
+  });
+
+  $('#userNameMenu').html(window.localStorage.user_name);
+  $('#userName').html('<small style=" font-size: 80%;">Bienvenido<br>'+ window.localStorage.user_name +'</small>');
+   
+   
 
 }).trigger();
 

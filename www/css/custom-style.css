@@ -1,9 +1,20 @@
+.mentiony-item {
+  
+    height: 35px;
+    background-color: #dee2e6;
 
-
+}
+.mentiony-container .mentiony-popover {
+    left: 0 !important;
+}
+.mentiony-container .mentiony-content {
+    outline: none;
+    text-align: initial;
+}
 .comm-textarea {
     width:200px;
     resize:none;
-    /*overflow:hidden;*/
+    /*overflow:hidden;*/            
     font-size:18px;
     height:2em;
     padding:2px;
