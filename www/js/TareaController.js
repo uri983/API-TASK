@@ -50,7 +50,9 @@ var jTask = function () {
       click_init: function () {
         var $this = this;
          $('#btnAddtarea').on('click',function(){
-            myApp.modal({
+
+            myApp.pickerModal('.picker-task');
+            /*myApp.modal({
               title:  'Agregar una tarea',
               text: '',
               afterText: '<div class="form-group"><label for="inptTaskName">Nombre de la tarea</label>'+
@@ -73,13 +75,13 @@ var jTask = function () {
                   }
                 },
               ]
-            });
+            });*/
             /*$("#inptTaskDescription").smention("http://localhost/Friday%20Api%20Task/www/lib/smention/get_users.php",{
              extraParams : {"akey" : "avalue"}
             });*/
 
 
-            $("#inptTaskDescription").mentiony({
+            /*$("#inptTaskDescription").mentiony({
               popoverOffset:      {
                x: 0,
                y: 0
@@ -109,7 +111,12 @@ var jTask = function () {
                   onDataRequestCompleteCallback.call(this, data);
               },
 
-              });
+              });*/
+
+              $('#inptTaskDescription').atwho({
+                  at: "@",
+                  data:['Peter', 'Tom', 'Anne']
+              })
 
 
 
@@ -250,7 +257,7 @@ var jTask = function () {
                      if(response.success == true){
                         $('#inptComment').val('');
                         jTask.list_comments('comentList',taskId);
-                        myApp.alert(response.data.message,'Corecto');
+                        //myApp.alert(response.data.message,'Corecto');
 
                         
                      }else{
