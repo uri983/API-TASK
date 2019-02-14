@@ -50,6 +50,7 @@ var jLogin = function () {
                        $('#userNameMenu').html(window.localStorage.user_name);
                        $('#userName').html('<small style=" font-size: 80%;" >Bienvenido<br>'+ window.localStorage.user_name +'</small>');
                        myApp.closeModal();
+                       jProyecto.list_proyect('indexProjectList'); 
                    }else{
                        myApp.alert(response.data.message,'Error');
                    }
