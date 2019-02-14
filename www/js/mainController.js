@@ -1,7 +1,7 @@
 // Initialize app
 var myApp = new Framework7({swipeBackPage:false,
   swipePanel:false,
-  fastClicks: false,
+  fastClicks: true,
   pushState    : true,
   tapHold: true, //enable tap hold events
 
