@@ -52,74 +52,37 @@ var jTask = function () {
          $('#btnAddtarea').on('click',function(){
 
             myApp.pickerModal('.picker-task');
-            /*myApp.modal({
-              title:  'Agregar una tarea',
-              text: '',
-              afterText: '<div class="form-group"><label for="inptTaskName">Nombre de la tarea</label>'+
-                         '<input type="text" id="inptTaskName" name="inptTaskName" class="form-control" >'+
-                         '</div>'+
-                         '<div class="form-group">'+
-                         '<label for="inptTaskDescription">Descripción</label>'+
-                         '<textarea class="form-control" id="inptTaskDescription"  name="inptTaskDescription" rows="3"></textarea>'+
-                         '</div>',
-              buttons: [
-                {
-                  text: 'Cancelar'
-                },
-                {
-                  text: 'Añadir',
-                  bold: true,
-                  onClick: function () {
-                    
-                    $this.addTask();
-                  }
-                },
-              ]
-            });*/
-            /*$("#inptTaskDescription").smention("http://localhost/Friday%20Api%20Task/www/lib/smention/get_users.php",{
-             extraParams : {"akey" : "avalue"}
-            });*/
-
-
-            /*$("#inptTaskDescription").mentiony({
-              popoverOffset:      {
-               x: 0,
-               y: 0
-              },
-              applyInitialSize:   true,
-              popover: '<div id="mentiony-popover-[ID]" style="left:0;" class="mentiony-popover"></div>',
-              listItem: '<li class="mentiony-item" data-item-id="">' +
-                        '<div class="row">' +
-                        '<div class="pl0 col-xs-9 col-sm-9 col-md-9 col-lg-9">' +
-                        '<p class="title">Company name</p>' +
-                        '<p class="help-block">Addition information</p>' +
-                        '</div>' +
-                        '</div>' +
-                        '</li>',
-
-              onDataRequest: function (mode, keyword, onDataRequestCompleteCallback) {
-                  var data = [
-                      { id:1, name:'Jose Luis Ku Salazar', 'avatar':'img/user4.png', 'info':'wicho' , href: '#'},
-                      { id:2, name:'Daniel Puc Aguilar', 'avatar':'img/user4.png', 'info':'labonita' , href: '#'},
-                      { id:3, name:'Wendy Jarillo', 'avatar':'img/user4.png', 'info':'wendy' , href: '#'},
-                      { id:3, name:'Jorge Chora', 'avatar':'img/user4.png', 'info':'chorita' , href: '#'},
-                  ];
-                  data = jQuery.grep(data, function( item ) {
-                      return item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1;
-                  });
-                  // Call this to populate mention.
-                  onDataRequestCompleteCallback.call(this, data);
-              },
-
-              });*/
+          
+              var issues = [
+                { name: "JoseKu", content: "Jose Luis Ku"},
+                { name: "DanielPuc", content: "Daniel Puc"},
+                { name: "JorgeChora", content: "Jorge Chora"},
+                { name: "WendyJarillo", content: "Wendy Ruby"},
+              ];
 
               $('#inptTaskDescription').atwho({
-                  at: "@",
-                  data:['Peter', 'Tom', 'Anne']
+                 at: "@",
+                 displayTpl: '<li>${name} <small>${content}</small></li>',
+                 data: issues
               })
 
 
 
+         });
+
+
+         $('#btnSaveTask').on('click',function(){
+
+
+            if($('#inptTaskName').val() == ""){
+               myApp.alert("Introduce el nombre de la tarea",'Error');
+            }else if($('#inptTaskDescription').val() == ""){
+              myApp.alert("Introduce la descripción de la tarea",'Error');
+            }else{
+              $this.addTask();
+            }
+          
+            
          });
 
          
@@ -149,6 +112,9 @@ var jTask = function () {
             success: function(response){
                    if(response.success == true){
                       myApp.alert(response.data.message,'Corecto');
+                      myApp.closeModal('.picker-task');
+                      $('#inptTaskName').val() = "";
+                      $('#inptTaskDescription').val() = "";
                       jTask.list_task('taskList',$this.tablero);
                    }else{
                       myApp.alert(response.data.message,'Error');
