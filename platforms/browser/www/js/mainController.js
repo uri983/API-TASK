@@ -3,9 +3,8 @@ var myApp = new Framework7({swipeBackPage:false,
   swipePanel:false,
   fastClicks: false,
   pushState    : true,
-  touch: {
-    tapHold: true //enable tap hold events
-  },
+  tapHold: true, //enable tap hold events
+
   
 });
 
