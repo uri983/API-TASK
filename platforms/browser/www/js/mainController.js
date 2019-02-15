@@ -64,7 +64,11 @@ myApp.onPageInit('index', function (page) {
    
 
 
-   $$('.projectCard').on('taphold', function () {
+   $$('.projectCard').on('taphold', function (event) {
+    if (event.cancelable) {
+         event.preventDefault();
+         event.stopPropagation();
+    }
       myApp.alert('Tap hold fired!');
    });
 
