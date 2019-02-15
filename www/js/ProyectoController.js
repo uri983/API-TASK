@@ -93,6 +93,37 @@ var jProyecto = function () {
 
               $('#'+DomElement).html(html);
 
+              $('.card-body').Longtap({
+                timeout: 1000,
+                onStartDelay: 250,
+                onStart: (event, self) => {
+  
+                },
+                onSuccess: (event, self) => {
+
+                   myApp.pickerModal('.picker-options-project');
+                  
+                },
+                onStop: (event, self) => {
+
+                },
+                onReject: (event, self) => {
+
+                   myApp.pickerModal('.picker-options-project');
+
+                  
+                },
+
+                onSelect: (event, $self) => {
+
+                },
+
+                onContext: (event, $self) => {
+
+                }
+
+              });
+
             },
             error: function(xhr, status){
               //alert('Error: '+JSON.stringify(xhr));

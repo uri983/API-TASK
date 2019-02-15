@@ -66,57 +66,9 @@ myApp.onPageInit('index', function (page) {
 
 
 
-  $('#userName').Longtap({
-    timeout: 1000,
-    onStartDelay: 250,
-    onStart: (event, self) => {
-      
+  
 
-      console.log('on START');
-    },
-    onSuccess: (event, self) => {
-      
-      console.log('on SUCC');
-      myApp.alert('Tap hold fired!');
-      
-    },
-    onStop: (event, self) => {
-     
-
-      console.log('on STOP');
-    },
-    onReject: (event, self) => {
-      
-
-      console.log('on REJECT');
-       myApp.alert('Cancelado');
-
-      
-    },
-
-    onSelect: (event, $self) => {
-      console.log('on SELECT');
-    },
-
-    onContext: (event, $self) => {
-      console.log('on CONTEXT');
-    }
-
-  });
-
-    /*var longpress;
-
-    $(".projectCard").on('mousedown' ,function(){      
-     longpress=true;    
-     setTimeout(function() {    
-        if(longpress)
-         myApp.alert('Tap hold fired!');         
-                      }, 3000);
-    })
-    
-    $(".projectCard").on('mouseup' ,function(){      
-        longpress=false;    
-    })*/
+  
    
 
 }).trigger();
