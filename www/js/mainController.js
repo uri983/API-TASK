@@ -62,11 +62,9 @@ myApp.onPageInit('index', function (page) {
   $('#userNameMenu').html(window.localStorage.user_name);
   $('#userName').html('<small style=" font-size: 80%;">Bienvenido<br>'+ window.localStorage.user_name +'</small>');
    
-   $$('.projectCard').on('taphold', function () {
-    myApp.alert('Tap hold fired!');
-  });
 
-   $$(document).on('taphold','.projectCard', function(){
+
+   $$('.projectCard').on('taphold', function () {
       myApp.alert('Tap hold fired!');
    });
    
