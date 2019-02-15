@@ -75,6 +75,7 @@ myApp.onPageInit('index', function (page) {
                       }, 3000);
     })
     
+    
     $(".projectCard").on('mouseup' ,function(){      
         longpress=false;    
     })
