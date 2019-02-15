@@ -1,9 +1,9 @@
 // Initialize app
 var myApp = new Framework7({swipeBackPage:false,
   swipePanel:false,
-  fastClicks: true,
+  fastClicks: false,
   pushState    : true,
-  tapHold: true, //enable tap hold events
+  tapHold: false, //enable tap hold events
 
   
 });
@@ -64,13 +64,45 @@ myApp.onPageInit('index', function (page) {
    
 
 
-   $$('.projectCard').on('taphold', function (event) {
-    if (event.cancelable) {
-         event.preventDefault();
-         event.stopPropagation();
-    }
+
+
+  $('#userName').Longtap({
+    timeout: 1000,
+    onStartDelay: 250,
+    onStart: (event, self) => {
+      
+
+      console.log('on START');
+    },
+    onSuccess: (event, self) => {
+      
+      console.log('on SUCC');
       myApp.alert('Tap hold fired!');
-   });
+      
+    },
+    onStop: (event, self) => {
+     
+
+      console.log('on STOP');
+    },
+    onReject: (event, self) => {
+      
+
+      console.log('on REJECT');
+       myApp.alert('Cancelado');
+
+      
+    },
+
+    onSelect: (event, $self) => {
+      console.log('on SELECT');
+    },
+
+    onContext: (event, $self) => {
+      console.log('on CONTEXT');
+    }
+
+  });
 
     /*var longpress;
 
