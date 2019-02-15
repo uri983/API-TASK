@@ -64,8 +64,11 @@ myApp.onPageInit('index', function (page) {
    
 
 
+   $$('.projectCard').on('taphold', function () {
+      myApp.alert('Tap hold fired!');
+   });
 
-    var longpress;
+    /*var longpress;
 
     $(".projectCard").on('mousedown' ,function(){      
      longpress=true;    
@@ -75,10 +78,9 @@ myApp.onPageInit('index', function (page) {
                       }, 3000);
     })
     
-    
     $(".projectCard").on('mouseup' ,function(){      
         longpress=false;    
-    })
+    })*/
    
 
 }).trigger();
