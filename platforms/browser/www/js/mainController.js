@@ -165,6 +165,13 @@ myApp.onPageInit('tareaDetail', function (page) {
 })
 
 
+myApp.onPageInit('projectUsuario', function (page) {
+   
+    jUser.click_init();
+    
+})
+
+
 
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('pageInit', function (e) {

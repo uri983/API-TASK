@@ -93,7 +93,7 @@ var jProyecto = function () {
 
               $('#'+DomElement).html(html);
 
-              $('.card-body').Longtap({
+              /*$('.card-body').Longtap({
                 timeout: 1000,
                 onStartDelay: 250,
                 onStart: (event, self) => {
@@ -114,15 +114,8 @@ var jProyecto = function () {
                   
                 },
 
-                onSelect: (event, $self) => {
 
-                },
-
-                onContext: (event, $self) => {
-
-                }
-
-              });
+              });*/
 
             },
             error: function(xhr, status){
