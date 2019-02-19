@@ -86,18 +86,27 @@ var jTablero = function () {
               var html = "";
               $.each(response.data.boards, function( index, value ) {
                
-               html+='<a href="tareas.html?tableroId='+value.TABL_TABLERO+'&proyectoID='+value.TABL_PROYECTO+'" data-view=".view-main">';
-               html+='    <div class="card">';
-               html+='       <div class="card-body">';
-               html+='            <div class="media-body">';
-               html+='                 <h5>'+value.TABL_NOMBRE+' </h5>';
-               html+='            </div>';
-               html+='            <div class="w-auto h-100">';
-               html+='                 <span class="text-danger">En proceso</span>';
-               html+='            </div>'; 
-               html+='       </div>';  
-               html+='     </div>';
-               html+='</a>';
+               
+
+                html+= '<div class="card mb-3">';
+                html+= '                    <div class="card-header">';
+                html+= '                        <div class="row" style="width: 100%;">';
+                html+= '                            <div class="col-10">';
+                html+= '                                <a href="tareas.html?tableroId='+value.TABL_TABLERO+'&proyectoID='+value.TABL_PROYECTO+'" >';
+                html+= '                                   <h5 class="card-title">'+value.TABL_NOMBRE+'</h5>';
+                html+= '                                </a>';
+                html+= '                            </div>';
+                html+= '                            <div class="col-2 text-right" style="padding-right: 0px; padding-left: 50px;">';
+                html+= '                                <a href="javascript:void(0);" onclick="jTablero.tableroOption('+ value.TABL_TABLERO +','+value.TABL_PROYECTO+');"  >';
+                html+= '                                <i class="f7-icons">more_vertical_fill</i>';
+                html+= '                                </a>';
+                html+= '                            </div>';
+                html+= '                        </div>';
+                html+= '                    </div>';
+                //html+= '                    <div class="card-body ">';
+                //html+= '                        <p class="mb-0 text-secondary f-sm">Desde: '+value.PROY_CREATED_AT+' </p>';
+                //html+= '                    </div>';
+                html+=  ' </div>';
                 
 
               });
@@ -111,6 +120,48 @@ var jTablero = function () {
             }
           }); 
 
+      },
+      tableroOption:function(tableroId,proyectoId){
+          var $this   = this;
+          var buttons = [
+                {
+                    text: 'Editar',
+                    bold: true,
+                    onClick: function () {
+                        myApp.alert('editando');
+                    }
+                },
+                {
+                    text: 'Eliminar',
+                    bold: true,
+                    onClick: function () {
+                           myApp.modal({
+                                title:  '¿Deseas eliminar este tablero?',
+                                text: 'Todos los datos del tablero seran borrados permanentemente',
+                                buttons: [
+                                  {
+                                    text: 'Cancelar'
+                                  },
+                                  {
+                                    text: 'Eliminar',
+                                    bold: true,
+                                    onClick: function () {
+                                      
+                                      $this.deleteProyect(tableroId,proyectoId);
+                                    }
+                                  },
+                                ]
+                          });
+                            
+                    }
+                },
+                {
+                    text: 'Cancelar',
+                    color: 'red'
+                },
+            ];
+            myApp.actions(buttons);
+       
       },
       tableroGetDetail:function (tableroId){
 
@@ -137,6 +188,38 @@ var jTablero = function () {
 
             }
           });   
+
+      },
+      deleteProyect: function(tableroId,proyectoId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+        
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/board/destroy',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization" : "Bearer " + token,
+                        "Accept"        : "application/json ",
+                        "Content-Type"  : "application/x-www-form-urlencoded",},
+            data:{
+                  'TABL_TABLERO'       : tableroId,
+                  },
+            success: function(response){
+                   if(response.success == true){
+                      //myApp.alert(response.data.message,'Corecto');
+                      jTablero.listTablero('TablerosList',proyectoId);
+                   }else{
+                      myApp.alert(response.data.message,'Error');
+                   }
+           
+            },
+            error: function(xhr, status){
+            
+              //alert('Error: '+JSON.stringify(xhr));
+              //alert('ErrorStatus: '+JSON.stringify(status));
+            }
+          });
 
       },
 
