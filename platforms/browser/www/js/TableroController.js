@@ -9,6 +9,8 @@ var jTablero = function () {
         this.btn_add_tablero     = $("#btnAddTablero");
         this.proyecto            = projectId;
         this.click_init();
+
+        $("#btnAddMiembro").attr("href", "projectUsuario.html?projectId="+ $this.proyecto);
       
      
       }, 

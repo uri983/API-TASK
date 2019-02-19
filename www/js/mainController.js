@@ -166,9 +166,10 @@ myApp.onPageInit('tareaDetail', function (page) {
 
 
 myApp.onPageInit('projectUsuario', function (page) {
-   
+    let projectId = page.query.projectId
+    $('#idProyectoUser').val(projectId);
     jUser.click_init();
-    
+    jUser.listProyectUser('listUserProject',projectId);
 })
 
 

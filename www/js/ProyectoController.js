@@ -176,15 +176,38 @@ var jProyecto = function () {
 
       },
       projectOption:function(projectId){
-
+          var $this   = this;
           var buttons = [
                 {
                     text: 'Editar',
-                    bold: true
+                    bold: true,
+                    onClick: function () {
+                        myApp.alert('editando');
+                    }
                 },
                 {
                     text: 'Eliminar',
-                    bold: true
+                    bold: true,
+                    onClick: function () {
+                           myApp.modal({
+                                title:  '¿Deseas eliminar este proyecto?',
+                                text: 'Todos los datos del proyecto seran borrados permanentemente',
+                                buttons: [
+                                  {
+                                    text: 'Cancelar'
+                                  },
+                                  {
+                                    text: 'Eliminar',
+                                    bold: true,
+                                    onClick: function () {
+                                      
+                                      $this.deleteProyect(projectId);
+                                    }
+                                  },
+                                ]
+                          });
+                            
+                    }
                 },
                 {
                     text: 'Cancelar',
@@ -193,6 +216,38 @@ var jProyecto = function () {
             ];
             myApp.actions(buttons);
        
+      },
+      deleteProyect:function(projectId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+        
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/project/destroy',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization" : "Bearer " + token,
+                        "Accept"        : "application/json ",
+                        "Content-Type"  : "application/x-www-form-urlencoded",},
+            data:{
+                  'PROY_PROYECTO'       : projectId,
+                  },
+            success: function(response){
+                   if(response.success == true){
+                      //myApp.alert(response.data.message,'Corecto');
+                      jProyecto.list_proyect('indexProjectList');
+                   }else{
+                      myApp.alert(response.data.message,'Error');
+                   }
+           
+            },
+            error: function(xhr, status){
+            
+              //alert('Error: '+JSON.stringify(xhr));
+              //alert('ErrorStatus: '+JSON.stringify(status));
+            }
+          });
+
       },
 
 
