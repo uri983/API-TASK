@@ -57,37 +57,26 @@ var jProyecto = function () {
               var html = "";
               $.each(response.data.projects, function( index, value ) {
                 //alert( index + ": " + value );
-                html+= '<a href="projectDetail.html?projectId='+ value.PROY_PROYECTO +'" class="projectCard">';
-                html+= '                        <div class="card ">';                        
-                html+= '                            <div class="card-body">';
-                html+= '                                <a href="projectDetail.html?projectId='+ value.PROY_PROYECTO +'" class="media">';
-                html+= '                                    <div class="media-body">';
-                html+= '                                        <h5>'+value.PROY_NOMBRE+' </h5>';
-                html+= '                                        <p> Desde: '+value.PROY_CREATED_AT+'</p>';
-                html+= '                                    </div>';
-                html+= '                                    <div class="w-auto h-100">';
-                html+= '                                        <span class="text-danger">En proceso</span>';
-                html+= '                                    </div>'
+               
+                html+= '<div class="card mb-3">';
+                html+= '                    <div class="card-header">';
+                html+= '                        <div class="row" style="width: 100%;">';
+                html+= '                            <div class="col-10">';
+                html+= '                                <a href="projectDetail.html?projectId='+ value.PROY_PROYECTO +'" >';
+                html+= '                                   <h5 class="card-title">'+value.PROY_NOMBRE+'</h5>';
                 html+= '                                </a>';
                 html+= '                            </div>';
-               // html+= '                            <div class="card-footer">';
-               // html+= '                                <div class="row">';
-                //html+= '                                    <div class="col">';
-                //html+= '                                        <i class="material-icons text-warning">star</i>';
-                //html+= '                                        <span class="post-seconds">4.9 <span>(2)</span></span>';
-               // html+= '                                    </div>';
-               // html+= '                                    <div class="col">';
-                //html+= '                                        <i class="material-icons text-grey">schedule</i>';
-               // html+= '                                        <span class="post-seconds">254 <span>hrs</span></span>';
-                //html+= '                                    </div>';
-                //html+= '                                    <div class="col">';
-                //html+= '                                        <i class="material-icons text-grey">monetization_on</i>';
-                //html+= '                                        <span class="post-seconds">4000 <span>$</span></span>';
-                //html+= '                                    </div>';
-                //html+= '                                </div>';
-               // html+= '                            </div>';                           
+                html+= '                            <div class="col-2 text-right" style="padding-right: 0px; padding-left: 50px;">';
+                html+= '                                <a href="javascript:void(0);" onclick="jProyecto.projectOption('+ value.PROY_PROYECTO +');"  >';
+                html+= '                                <i class="f7-icons">more_vertical_fill</i>';
+                html+= '                                </a>';
+                html+= '                            </div>';
                 html+= '                        </div>';
-                html+= '                    </a>';
+                html+= '                    </div>';
+                html+= '                    <div class="card-body ">';
+                html+= '                        <p class="mb-0 text-secondary f-sm">Desde: '+value.PROY_CREATED_AT+' </p>';
+                html+= '                    </div>';
+                html+=  ' </div>';
 
               });
 
@@ -185,7 +174,26 @@ var jProyecto = function () {
             }
           });    
 
-      }
+      },
+      projectOption:function(projectId){
+
+          var buttons = [
+                {
+                    text: 'Editar',
+                    bold: true
+                },
+                {
+                    text: 'Eliminar',
+                    bold: true
+                },
+                {
+                    text: 'Cancelar',
+                    color: 'red'
+                },
+            ];
+            myApp.actions(buttons);
+       
+      },
 
 
 

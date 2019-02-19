@@ -41,21 +41,19 @@ var jUser = function () {
               if(response.data.users.length > 0){
                   $.each(response.data.users, function( index, value ) {
 
-                  html+= '<a href="" class="projectCard">';
-                  html+= '  <div class="card ">';                        
-                  html+= '      <div class="card-body">';
-                  html+= '          <a href="" class="media">';
-                  html+= '               <div class="media-body">';
-                  html+= '                    <h5>'+value.name+' </h5>';
-                  html+= '                    <p>'+value.alias+'</p>';
-                  html+= '                </div>';
-                  html+= '                <div class="w-auto h-100">';
-                  //html+= '                                        <span class="text-danger">En proceso</span>';
-                  html+= '                </div>'
-                  html+= '           </a>';
-                  html+= '       </div>';                   
-                  html+= '  </div>';
-                  html+= '</a>';
+                    html+= '<li class="list-group-item">';
+                    html+= '   <a href="#" class="media">';
+                    html+= '       <div class="media-body">';
+                    html+= '           <h5>'+value.name+'</h5>';
+                    html+= '           <p>'+value.alias+'</p>';
+                    html+= '       </div>';
+                    html+= '       <div class="w-auto">';  
+                    html+= '       <button id="btnAddTablero" style="margin: 20px 15px 20px 15px; font-size: 10px; line-height: 16px;" class="mb-2 btn btn-outline-primary open-prompt" data-toggle="modal" data-target="#addTableroModal">Añadir</button>';                
+                    html+= '       </div>';
+                    html+= '   </a>';
+                    html+= '</li>';
+
+                    
 
                   });
 
