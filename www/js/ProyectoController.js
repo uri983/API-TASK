@@ -179,13 +179,6 @@ var jProyecto = function () {
           var $this   = this;
           var buttons = [
                 {
-                    text: 'Editar',
-                    bold: true,
-                    onClick: function () {
-                        myApp.alert('editando');
-                    }
-                },
-                {
                     text: 'Eliminar',
                     bold: true,
                     onClick: function () {

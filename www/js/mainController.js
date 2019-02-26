@@ -98,7 +98,7 @@ myApp.onPageInit('tareas', function (page) {
    let tableroId  = page.query.tableroId;
    let proyectoId = page.query.proyectoId;
    jTask.Init(tableroId,proyectoId);
-   myApp.sortableOpen('.sortable');
+   
    jTablero.tableroGetDetail(tableroId);
    jTask.list_task('taskList',tableroId);
 })

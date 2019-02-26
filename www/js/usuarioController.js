@@ -43,10 +43,14 @@ var jUser = function () {
                     html+= '                <h5>'+value.name+'</h5>';
                     html+= '                <p>'+value.alias+'</p>';
                     html+= '            </div>';
-                    html+= '            <div class="w-auto"> ';               
+                    html+= '            <div class="w-auto"> '; 
+                    html+= '            <small class="text-primary effort-time" onclick="jUser.userOption('+value.id+','+project+')"><i class="f7-icons">more_vertical_fill</i></small>';               
                     html+= '            </div>';
                     html+= '        </a>';
                     html+= '</li>';
+
+
+
 
                   });
 
@@ -63,6 +67,77 @@ var jUser = function () {
             }
           });
 
+
+        
+
+      },
+      deleteUser: function(userId,proyectoId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+        
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/projectmember/destroy',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization" : "Bearer " + token,
+                        "Accept"        : "application/json ",
+                        "Content-Type"  : "application/x-www-form-urlencoded",},
+            data:{
+                  'USER_PROYECTO': proyectoId,
+                  'USER_USER':userId
+                  },
+            success: function(response){
+                   if(response.success == true){
+                      //myApp.alert(response.data.message,'Corecto');
+                     jUser.listProyectUser('listUserProject',proyectoId);
+                   }else{
+                      myApp.alert(response.data.message,'Error');
+                   }
+           
+            },
+            error: function(xhr, status){
+            
+              //alert('Error: '+JSON.stringify(xhr));
+              //alert('ErrorStatus: '+JSON.stringify(status));
+            }
+          });
+
+      },
+      userOption:function(userId,proyectoId){
+          var $this   = this;
+          var buttons = [
+                {
+                    text: 'Eliminar del proyecto',
+                    bold: true,
+                    onClick: function () {
+                           myApp.modal({
+                                title:  '¿Deseas eliminar este usuario del proyecto?',
+                                text:   'El usuario no tendra acceso al proyecto despues de ser eliminado',
+                                buttons: [
+                                  {
+                                    text: 'Cancelar'
+                                  },
+                                  {
+                                    text: 'Eliminar',
+                                    bold: true,
+                                    onClick: function () {
+                                      
+                                      $this.deleteUser(userId,proyectoId);
+                                    }
+                                  },
+                                ]
+                          });
+                            
+                    }
+                },
+                {
+                    text: 'Cancelar',
+                    color: 'red'
+                },
+            ];
+            myApp.actions(buttons);
+       
       },
       addUserProyect: function(userId){
             var  proyecto = $('#idProyectoUser').val();

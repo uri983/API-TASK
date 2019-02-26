@@ -1,3 +1,14 @@
+.options-toogle{
+    position: absolute; 
+     right: 0;
+     top: 0; 
+     bottom: 1px; 
+     z-index: 10; 
+     background-repeat: no-repeat; 
+     margin-top: 5%;
+}
+
+
 
 .picker-modal {
     

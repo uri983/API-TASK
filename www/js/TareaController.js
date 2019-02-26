@@ -113,8 +113,8 @@ var jTask = function () {
                    if(response.success == true){
                       myApp.alert(response.data.message,'Corecto');
                       myApp.closeModal('.picker-task');
-                      $('#inptTaskName').val() = "";
-                      $('#inptTaskDescription').val() = "";
+                      $('#inptTaskName').val("");
+                      $('#inptTaskDescription').val("");
                       jTask.list_task('taskList',$this.tablero);
                    }else{
                       myApp.alert(response.data.message,'Error');
@@ -153,6 +153,9 @@ var jTask = function () {
                html+='            <p class="text-danger "> Pendiente </p>';
                html+='         </div>';
                html+='   </a>';
+               html+= '       <div class="w-auto options-toogle"> '; 
+               html+= '         <small class="text-primary effort-time" onclick="jTask.taskOption('+value.TARE_TAREA+','+value.TARE_TABLERO+');"><i class="f7-icons">more_vertical_fill</i></small>';               
+               html+= '       </div>';
                html+='   <div class="sortable-handler"></div>';
                html+='</li>';
               
@@ -168,6 +171,73 @@ var jTask = function () {
               //alert('ErrorStatus: '+JSON.stringify(status));
             }
           }); 
+
+      },
+      taskOption:function(taskId,tableroId){
+          var $this   = this;
+          var buttons = [
+                {
+                    text: 'Eliminar',
+                    bold: true,
+                    onClick: function () {
+                           myApp.modal({
+                                title:  '¿Deseas eliminar esta tarea?',
+                                text:   '',
+                                buttons: [
+                                  {
+                                    text: 'Cancelar'
+                                  },
+                                  {
+                                    text: 'Eliminar',
+                                    bold: true,
+                                    onClick: function () {
+                                      
+                                      $this.deleteTask(taskId,tableroId);
+                                    }
+                                  },
+                                ]
+                          });
+                            
+                    }
+                },
+                {
+                    text: 'Cancelar',
+                    color: 'red'
+                },
+            ];
+            myApp.actions(buttons);
+       
+      },
+      deleteTask:function(taskId,tableroId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+        
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/task/destroy',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization" : "Bearer " + token,
+                        "Accept"        : "application/json ",
+                        "Content-Type"  : "application/x-www-form-urlencoded",},
+            data:{
+                        'TARE_TAREA'       : taskId,
+                  },
+            success: function(response){
+                   if(response.success == true){
+                      //myApp.alert(response.data.message,'Corecto');
+                       jTask.list_task('taskList',tableroId);
+                   }else{
+                      myApp.alert(response.data.message,'Error');
+                   }
+           
+            },
+            error: function(xhr, status){
+            
+              //alert('Error: '+JSON.stringify(xhr));
+              //alert('ErrorStatus: '+JSON.stringify(status));
+            }
+          });
 
       },
       taskGetDetail:function (taskId){
@@ -255,7 +325,7 @@ var jTask = function () {
                 var html = "";
                 $.each(response.data.comments, function( index, value ) {
                  
-                 html+=' <li class="list-group-item">';
+                 html+='<li class="list-group-item">';
                  html+='    <a href="#" class="media">';
                  html+='        <div class="w-auto h-100">';
                  html+='             <figure class="avatar avatar-40"><img src="img/user4.png" alt=""> </figure>';
@@ -264,6 +334,9 @@ var jTask = function () {
                  html+='          <h5>'+value.name+' </h5>';
                  html+='           <p>'+value.COME_TEXTO+'</p>';
                  html+='         </div>';
+                 html+= '       <div class="w-auto "> '; 
+                 html+= '         <small class="text-primary effort-time" onclick="jTask.commentOption('+value.COME_COMENTARIO+','+taskId+')"><i class="f7-icons">more_vertical_fill</i></small>';               
+                 html+= '       </div>';
                  html+='    </a>';
                  html+='</li>';
                 
@@ -280,6 +353,83 @@ var jTask = function () {
                 //alert('ErrorStatus: '+JSON.stringify(status));
               }
             }); 
+      },
+      commentOption:function(commentId,taskId){
+          var $this   = this;
+          var buttons = [
+                {
+                    text: 'Eliminar',
+                    bold: true,
+                    onClick: function () {
+                           myApp.modal({
+                                title:  '¿Deseas eliminar este comentario?',
+                                text:   '',
+                                buttons: [
+                                  {
+                                    text: 'Cancelar'
+                                  },
+                                  {
+                                    text: 'Eliminar',
+                                    bold: true,
+                                    onClick: function () {
+                                      
+                                      $this.deleteComment(commentId,taskId);
+                                    }
+                                  },
+                                ]
+                          });
+                            
+                    }
+                },
+                {
+                    text: 'Cancelar',
+                    color: 'red'
+                },
+            ];
+            myApp.actions(buttons);
+       
+      },
+      deleteComment:function(commentId,taskId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+        
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/comment/destroy',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization" : "Bearer " + token,
+                        "Accept"        : "application/json ",
+                        "Content-Type"  : "application/x-www-form-urlencoded",},
+            data:{
+                  'COME_COMENTARIO'       : commentId,
+                  },
+            success: function(response){
+                   if(response.success == true){
+                      //myApp.alert(response.data.message,'Corecto');
+                       jTask.list_comments('comentList',taskId);
+                   }else{
+                      myApp.alert(response.data.message,'Error');
+                   }
+           
+            },
+            error: function(xhr, status){
+            
+              //alert('Error: '+JSON.stringify(xhr));
+              //alert('ErrorStatus: '+JSON.stringify(status));
+            }
+          });
+
+      },
+      sortableToggle: function(){
+        myApp.sortableToggle('.sortable');
+
+        if ($('.options-toogle').is(':visible')) {
+            $('.options-toogle').hide();
+        } else {
+            $('.options-toogle').show();
+        }
+
       },
 
 
