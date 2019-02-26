@@ -96,7 +96,8 @@ myApp.onPageInit('Addproject', function (page) {
 myApp.onPageInit('tareas', function (page) {
 
    let tableroId  = page.query.tableroId;
-   let proyectoId = page.query.proyectoId;
+   let proyectoId = page.query.proyectoID;
+
    jTask.Init(tableroId,proyectoId);
    
    jTablero.tableroGetDetail(tableroId);

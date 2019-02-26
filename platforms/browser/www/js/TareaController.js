@@ -6,7 +6,8 @@ var jTask = function () {
         var $this = this;
         this.tablero             = tableroId;
         this.proyecto            = proyectoId;
-        this.click_init();
+        this.click_init(tableroId,proyectoId);
+
       },
 
       event_click: function(taskId){
@@ -47,28 +48,54 @@ var jTask = function () {
              
 
       }, 
-      click_init: function () {
+      click_init: function (tableroId,proyectoId) {
         var $this = this;
+
          $('#btnAddtarea').on('click',function(){
 
-            myApp.pickerModal('.picker-task');
-          
-              var issues = [
-                { name: "JoseKu", content: "Jose Luis Ku"},
-                { name: "DanielPuc", content: "Daniel Puc"},
-                { name: "JorgeChora", content: "Jorge Chora"},
-                { name: "WendyJarillo", content: "Wendy Ruby"},
-              ];
+            var token = window.localStorage.user_token;
 
-              $('#inptTaskDescription').atwho({
-                 at: "@",
-                 displayTpl: '<li>${name} <small>${content}</small></li>',
-                 data: issues
-              })
+            $$.ajax({
+                url     : 'http://35.211.157.80/appmanager/api/projectmember/index',
+                method  : 'POST',
+                dataType: 'json',
+                headers : {"Authorization": "Bearer " + token,
+                           "Accept"       : "application/json ",
+                           "Content-Type" : "application/x-www-form-urlencoded",},
+                data    :{
+                           'NUM_PROYECTO'        : proyectoId,
+                         },
+                success : function(response){
+                  var issues = [
+                  ];
 
 
+                 $.each(response.data.members, function( index, value ) {
+                   issues.push({ "name": value.alias.replace('@',''), "content": value.name}); 
+                 });
+                 
 
-         });
+                  myApp.pickerModal('.picker-task');
+                  console.log(issues);
+                  
+                  $('#inptTaskDescription').atwho({
+                     at: "@",
+                     displayTpl: '<li>${name} <small>${content}</small></li>',
+                     data: issues
+                  })
+
+                  
+                },
+                error: function(xhr, status){
+                  //alert('Error: '+JSON.stringify(xhr));
+                  //alert('ErrorStatus: '+JSON.stringify(status));
+                }
+              });
+
+                
+
+
+             });
 
 
          $('#btnSaveTask').on('click',function(){
