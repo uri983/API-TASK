@@ -17,9 +17,9 @@ var jTask = function () {
            myApp.modal({
                 title:  'Agregar una documento',
                 text: 'Carga un documento anexo a la tarea',
-                afterText: '<div class="form-group">'+
-                                '<input type="file" class="form-control" id="file">'+
-                            '</div>',
+                afterText: '<form id="docForm"  enctype="multipart/form-data"><div class="form-group">'+
+                                '<input type="file" class="form-control" id="file_task">'+
+                            '</div></form>',
                 buttons: [
                   {
                     text: 'Cancelar'
@@ -28,8 +28,8 @@ var jTask = function () {
                     text: 'Añadir',
                     bold: true,
                     onClick: function () {
+                    $this.addDocument(taskId);  
                       
-                      $this.addProyect();
                     }
                   },
                 ]
@@ -298,6 +298,49 @@ var jTask = function () {
           });   
 
       },
+      addDocument: function(taskId){
+
+          var $this    = this;
+          var token    = window.localStorage.user_token;
+          var user_id  = window.localStorage.user_id;
+          var form     = $('#docForm')[0];
+          var formData = new FormData(form);
+
+          var file_upload = $('#file_task');
+          formData.append('FILE_TAREA', taskId);
+          formData.append('FILE',   file_upload[0].files[0]);
+
+          
+          $$.ajax({
+              url     : 'http://35.211.157.80/appmanager/api/file/store',
+              method  : 'POST',
+              dataType: 'json',
+              headers  : {"Authorization": "Bearer " + token,
+                          "Accept": "application/json ",
+                          },
+              data:formData,
+              processData: false,
+              contentType: false,
+              cache:false,
+              success: function(response){
+                     if(response.success == true){
+
+                        myApp.alert(response.data.message,'Corecto');
+
+                        
+                     }else{
+                        myApp.alert(response.data.message,'Error');
+                     }
+             
+              },
+              error: function(xhr, status){
+                
+                //alert('Error: '+JSON.stringify(xhr));
+                //alert('ErrorStatus: '+JSON.stringify(status));
+              }
+            });        
+     
+      },
       addComment: function(taskId){
           var $this = this;
           var token = window.localStorage.user_token;
@@ -369,6 +412,74 @@ var jTask = function () {
                 
                 
                   
+
+                });
+
+                $('#'+DomElement).html(html);
+
+              },
+              error: function(xhr, status){
+                //alert('Error: '+JSON.stringify(xhr));
+                //alert('ErrorStatus: '+JSON.stringify(status));
+              }
+            }); 
+      },
+      list_documents: function(DomElement,taskId){
+        var $this = this;
+        var token = window.localStorage.user_token;
+
+          $$.ajax({
+              url     : 'http://35.211.157.80/appmanager/api/file/index',
+              method  : 'POST',
+              dataType: 'json',
+              headers : {"Authorization": "Bearer " + token,
+                         "Accept"       : "application/json ",
+                         "Content-Type" : "application/x-www-form-urlencoded",},
+              data    : {'FILE_TAREA' : taskId},
+              success : function(response){
+                var html = "";
+                $.each(response.data.files, function( index, value ) {
+                  var doc_color = "#007aff";
+                  if(value.FILE_TYPE == "pdf"){
+                    doc_color = "#ff3b30";
+                  }else if(value.FILE_TYPE == "docx"){
+                    doc_color = "#007aff";
+                  }
+                  else if(value.FILE_TYPE == "xlsx"){
+                    doc_color = "#28a745";
+                  }
+                 
+                   html+='<li class="list-group-item">';
+
+                   if(value.FILE_TYPE.toLowerCase() == 'jpg' || value.FILE_TYPE.toLowerCase() == 'png' || value.FILE_TYPE.toLowerCase() == 'jpeg' ){
+                    html+='    <a href="'+value.FILE_LINK+'" target="_blank" class="media">';
+                   html+='       <img src="'+value.FILE_LINK+'" alt=""> '
+                   html+='    </a>';
+                   
+                   }else{
+
+                   html+='    <a href="'+value.FILE_LINK+'" target="_blank" class="media">';
+                   html+='        <div class="w-auto h-100">';
+                   html+='             <i class="f7-icons" style="color:'+doc_color+';"> document_text</i>';
+                   html+='        </div>';
+                   html+='         <div class="media-body">';
+                   html+='          <h5>'+value.FILE_NAME+' </h5>';
+                   html+='           <p>'+value.FILE_SIZE+'</p>';
+                   html+='         </div>';
+                   html+='    </a>';
+
+                   }
+
+                   
+
+                   html+= '       <div class="w-auto   options-toogle "> '; 
+                   html+= '         <small class="text-primary effort-time" onclick="jTask.commentOption('+value.FILE_ID+','+taskId+')"><i class="f7-icons">more_vertical_fill</i></small>';               
+                   html+= '       </div>';
+                   
+                   html+='</li>';
+                
+                
+                 
 
                 });
 

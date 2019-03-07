@@ -110,6 +110,7 @@ myApp.onPageInit('tareaDetail', function (page) {
    jTask.taskGetDetail(taskId);
    jTask.event_click(taskId);
    jTask.list_comments('comentList',taskId);
+   jTask.list_documents('docuList',taskId);
 
 
 
