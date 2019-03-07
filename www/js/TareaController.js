@@ -453,7 +453,7 @@ var jTask = function () {
 
                    if(value.FILE_TYPE.toLowerCase() == 'jpg' || value.FILE_TYPE.toLowerCase() == 'png' || value.FILE_TYPE.toLowerCase() == 'jpeg' ){
                     html+='    <a href="'+value.FILE_LINK+'" target="_blank" class="media">';
-                   html+='       <img src="'+value.FILE_LINK+'" alt=""> '
+                   html+='       <img src="'+value.FILE_LINK+'" alt="" style="    width: 100%; height: 100%;"> '
                    html+='    </a>';
                    
                    }else{

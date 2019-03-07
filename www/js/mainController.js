@@ -63,14 +63,6 @@ myApp.onPageInit('index', function (page) {
   $('#userName').html('<small style=" font-size: 80%;">Bienvenido<br>'+ window.localStorage.user_name +'</small>');
    
 
-
-
-
-  
-
-  
-   
-
 }).trigger();
 
 
