@@ -46,6 +46,7 @@ var jProyecto = function () {
         var token = window.localStorage.user_token;
         var userId = window.localStorage.user_id;
 
+
         $$.ajax({
             url     : 'http://35.211.157.80/appmanager/api/project/index',
             method  : 'POST',
@@ -58,7 +59,7 @@ var jProyecto = function () {
               var html = "";
               $.each(response.data.projects, function( index, value ) {
                 //alert( index + ": " + value );
-               
+              
                 html+= '<div class="card mb-3">';
                 html+= '                    <div class="card-header">';
                 html+= '                        <div class="row" style="width: 100%;">';
