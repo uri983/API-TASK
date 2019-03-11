@@ -44,6 +44,7 @@ var jProyecto = function () {
 
         var $this = this;
         var token = window.localStorage.user_token;
+        var userId = window.localStorage.user_id;
 
         $$.ajax({
             url     : 'http://35.211.157.80/appmanager/api/project/index',
@@ -66,11 +67,17 @@ var jProyecto = function () {
                 html+= '                                   <h5 class="card-title">'+value.PROY_NOMBRE+'</h5>';
                 html+= '                                </a>';
                 html+= '                            </div>';
-                html+= '                            <div class="col-2 text-right" style="padding-right: 0px; padding-left: 50px;">';
-                html+= '                                <a href="javascript:void(0);" onclick="jProyecto.projectOption('+ value.PROY_PROYECTO +');"  >';
-                html+= '                                <i class="f7-icons">more_vertical_fill</i>';
-                html+= '                                </a>';
-                html+= '                            </div>';
+                if(userId == value.PROY_USUARIO){
+                  html+= '                         <div class="w-auto options-toogle"> '; 
+                  html+= '                          <small class="text-primary effort-time" onclick="jProyecto.projectOption('+ value.PROY_PROYECTO +');"><i class="f7-icons">more_vertical_fill</i></small>';               
+                  html+= '                        </div>';
+                }
+                
+                //html+= '                            <div class="col-2 text-right" style="padding-right: 0px; padding-left: 50px;">';
+                //html+= '                                <a href="javascript:void(0);" onclick="jProyecto.projectOption('+ value.PROY_PROYECTO +');"  >';
+                //html+= '                                <i class="f7-icons">more_vertical_fill</i>';
+                //html+= '                                </a>';
+                //html+= '                            </div>';
                 html+= '                        </div>';
                 html+= '                    </div>';
                 html+= '                    <div class="card-body ">';
@@ -78,6 +85,7 @@ var jProyecto = function () {
                 html+= '                    </div>';
                 html+=  ' </div>';
 
+               
               });
 
               $('#'+DomElement).html(html);
