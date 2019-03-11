@@ -513,7 +513,7 @@ var jTask = function () {
                                     bold: true,
                                     onClick: function () {
                                       
-                                      $this.deleteComment(documentId,taskId);
+                                      $this.deleteDocument(documentId,taskId);
                                     }
                                   },
                                 ]
@@ -542,7 +542,7 @@ var jTask = function () {
                         "Accept"        : "application/json ",
                         "Content-Type"  : "application/x-www-form-urlencoded",},
             data:{
-                  'FILE_FILE'       : commentId,
+                  'FILE_FILE'       : documentId,
                   },
             success: function(response){
                    if(response.success == true){
