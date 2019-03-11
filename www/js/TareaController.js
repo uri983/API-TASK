@@ -299,7 +299,7 @@ var jTask = function () {
 
       },
       addDocument: function(taskId){
-
+          SpinnerPlugin.activityStart("Cargando archivo...");
           var $this    = this;
           var token    = window.localStorage.user_token;
           var user_id  = window.localStorage.user_id;
@@ -324,14 +324,16 @@ var jTask = function () {
               cache:false,
               success: function(response){
                      if(response.success == true){
-
+                        SpinnerPlugin.activityStop();
                         myApp.alert(response.data.message,'Corecto');
+                        jTask.list_documents('docuList',taskId);
 
                         
                      }else{
+                        SpinnerPlugin.activityStop();
                         myApp.alert(response.data.message,'Error');
                      }
-             
+                     
               },
               error: function(xhr, status){
                 
@@ -473,7 +475,7 @@ var jTask = function () {
                    
 
                    html+= '       <div class="w-auto   options-toogle "> '; 
-                   html+= '         <small class="text-primary effort-time" onclick="jTask.commentOption('+value.FILE_ID+','+taskId+')"><i class="f7-icons">more_vertical_fill</i></small>';               
+                   html+= '         <small class="text-primary effort-time" onclick="jTask.documentOption('+value.FILE_ID+','+taskId+')"><i class="f7-icons">more_vertical_fill</i></small>';               
                    html+= '       </div>';
                    
                    html+='</li>';
@@ -491,6 +493,73 @@ var jTask = function () {
                 //alert('ErrorStatus: '+JSON.stringify(status));
               }
             }); 
+      },
+      documentOption:function(documentId,taskId){
+          var $this   = this;
+          var buttons = [
+                {
+                    text: 'Eliminar',
+                    bold: true,
+                    onClick: function () {
+                           myApp.modal({
+                                title:  '¿Deseas eliminar este documento?',
+                                text:   '',
+                                buttons: [
+                                  {
+                                    text: 'Cancelar'
+                                  },
+                                  {
+                                    text: 'Eliminar',
+                                    bold: true,
+                                    onClick: function () {
+                                      
+                                      $this.deleteComment(documentId,taskId);
+                                    }
+                                  },
+                                ]
+                          });
+                            
+                    }
+                },
+                {
+                    text: 'Cancelar',
+                    color: 'red'
+                },
+            ];
+            myApp.actions(buttons);
+       
+      },
+      deleteDocument:function(documentId,taskId){
+
+        var $this = this;
+        var token = window.localStorage.user_token;
+        
+        $$.ajax({
+            url     : 'http://35.211.157.80/appmanager/api/file/destroy',
+            method  : 'POST',
+            dataType: 'json',
+            headers  : {"Authorization" : "Bearer " + token,
+                        "Accept"        : "application/json ",
+                        "Content-Type"  : "application/x-www-form-urlencoded",},
+            data:{
+                  'FILE_FILE'       : commentId,
+                  },
+            success: function(response){
+                   if(response.success == true){
+                      //myApp.alert(response.data.message,'Corecto');
+                      jTask.list_documents('docuList',taskId);
+                   }else{
+                      myApp.alert(response.data.message,'Error');
+                   }
+           
+            },
+            error: function(xhr, status){
+            
+              //alert('Error: '+JSON.stringify(xhr));
+              //alert('ErrorStatus: '+JSON.stringify(status));
+            }
+          });
+
       },
       commentOption:function(commentId,taskId){
           var $this   = this;
