@@ -73,7 +73,7 @@ var jTablero = function () {
       listTablero: function(DomElement,idProject){
         var $this = this;
         var token = window.localStorage.user_token;
-
+        var userId = window.localStorage.user_id;
         $$.ajax({
             url     : 'http://35.211.157.80/appmanager/api/board/index',
             method  : 'POST',
@@ -96,11 +96,17 @@ var jTablero = function () {
                 html+= '                                   <h5 class="card-title">'+value.TABL_NOMBRE+'</h5>';
                 html+= '                                </a>';
                 html+= '                            </div>';
-                html+= '                            <div class="col-2 text-right" style="padding-right: 0px; padding-left: 50px;">';
-                html+= '                                <a href="javascript:void(0);" onclick="jTablero.tableroOption('+ value.TABL_TABLERO +','+value.TABL_PROYECTO+');"  >';
-                html+= '                                <i class="f7-icons">more_vertical_fill</i>';
-                html+= '                                </a>';
-                html+= '                            </div>';
+                if(userId == value.TABL_CREATED_BY){
+                  html+= '                         <div class="w-auto options-toogle"> '; 
+                  html+= '                          <small class="text-primary effort-time" onclick="jTablero.tableroOption('+ value.TABL_TABLERO +','+value.TABL_PROYECTO+');"><i class="f7-icons">more_vertical_fill</i></small>';               
+                  html+= '                        </div>';
+                }
+                
+                //html+= '                            <div class="col-2 text-right" style="padding-right: 0px; padding-left: 50px;">';
+                //html+= '                                <a href="javascript:void(0);" onclick="jTablero.tableroOption('+ value.TABL_TABLERO +','+value.TABL_PROYECTO+');"  >';
+                //html+= '                                <i class="f7-icons">more_vertical_fill</i>';
+                //html+= '                                </a>';
+                //html+= '                            </div>';
                 html+= '                        </div>';
                 html+= '                    </div>';
                 //html+= '                    <div class="card-body ">';
@@ -174,6 +180,13 @@ var jTablero = function () {
             success: function(response){
                    console.log(response);
                    $("#labelBoardName").html(response.data.board.TABL_NOMBRE);
+
+                   if( window.localStorage.isOwner == 1){
+                      $('#btnAddtarea').show();
+                   }else{
+                     $('#btnAddtarea').hide();
+                   }
+                   btnAddtarea
                    SpinnerPlugin.activityStop();
            
             },

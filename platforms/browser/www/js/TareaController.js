@@ -159,6 +159,7 @@ var jTask = function () {
 
         var $this = this;
         var token = window.localStorage.user_token;
+        var userId = window.localStorage.user_id;
 
         $$.ajax({
             url     : 'http://35.211.157.80/appmanager/api/task/index',
@@ -180,9 +181,11 @@ var jTask = function () {
                html+='            <p class="text-danger "> Pendiente </p>';
                html+='         </div>';
                html+='   </a>';
+               if(userId == value.TARE_CREATED_BY){
                html+= '       <div class="w-auto options-toogle"> '; 
                html+= '         <small class="text-primary effort-time" onclick="jTask.taskOption('+value.TARE_TAREA+','+value.TARE_TABLERO+');"><i class="f7-icons">more_vertical_fill</i></small>';               
                html+= '       </div>';
+               }
                html+='   <div class="sortable-handler"></div>';
                html+='</li>';
               
@@ -384,6 +387,7 @@ var jTask = function () {
       list_comments: function(DomElement,taskId){
         var $this = this;
         var token = window.localStorage.user_token;
+        var userId = window.localStorage.user_id;
 
           $$.ajax({
               url     : 'http://35.211.157.80/appmanager/api/comment/index',
@@ -406,9 +410,11 @@ var jTask = function () {
                  html+='          <h5>'+value.name+' </h5>';
                  html+='           <p>'+value.COME_TEXTO+'</p>';
                  html+='         </div>';
+                 if(userId == value.COME_CREATED_BY){
                  html+= '       <div class="w-auto "> '; 
                  html+= '         <small class="text-primary effort-time" onclick="jTask.commentOption('+value.COME_COMENTARIO+','+taskId+')"><i class="f7-icons">more_vertical_fill</i></small>';               
                  html+= '       </div>';
+                 }
                  html+='    </a>';
                  html+='</li>';
                 
@@ -429,6 +435,7 @@ var jTask = function () {
       list_documents: function(DomElement,taskId){
         var $this = this;
         var token = window.localStorage.user_token;
+        var userId = window.localStorage.user_id;
 
           $$.ajax({
               url     : 'http://35.211.157.80/appmanager/api/file/index',
@@ -473,11 +480,11 @@ var jTask = function () {
                    }
 
                    
-
+                   if(userId == value.FILE_UPLOAD_BY){
                    html+= '       <div class="w-auto   options-toogle "> '; 
                    html+= '         <small class="text-primary effort-time" onclick="jTask.documentOption('+value.FILE_ID+','+taskId+')"><i class="f7-icons">more_vertical_fill</i></small>';               
                    html+= '       </div>';
-                   
+                   }
                    html+='</li>';
                 
                 

@@ -173,6 +173,16 @@ var jProyecto = function () {
                   },
             success: function(response){
                    $("#labelProjectName").html(response.data.project.PROY_NOMBRE);
+                   if(response.data.project.PROY_USUARIO == window.localStorage.user_id){
+                     window.localStorage.isOwner     = 1;
+                   }else{
+                     window.localStorage.isOwner     = 0;
+                     $('#btnAddMiembro').hide();
+                     $('#btnAddTablero').hide();
+                     
+
+                   }
+                   
                    SpinnerPlugin.activityStop();
            
             },
