@@ -52,7 +52,6 @@
     </platform>
     <platform name="android">
     <resource-file src="google-services.json" target="app/google-services.json" />
-    ...
     </platform>
     <!--<platform name="ios">
         <resource-file src="GoogleService-Info.plist" />
