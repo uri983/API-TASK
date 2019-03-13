@@ -50,9 +50,7 @@
         <icon height="58" platform="ios" src="res/icons/ios/icon-small@2x.png" width="58" />
         <icon height="87" platform="ios" src="res/icons/ios/icon-small@3x.png" width="87" />
     </platform>
-    <platform name="android">
-        <resource-file src="google-services.json" target="app/google-services.json" />
-    </platform>
+  
     <preference name="DisallowOverscroll" value="true" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
