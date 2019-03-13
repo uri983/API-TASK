@@ -50,7 +50,9 @@
         <icon height="58" platform="ios" src="res/icons/ios/icon-small@2x.png" width="58" />
         <icon height="87" platform="ios" src="res/icons/ios/icon-small@3x.png" width="87" />
     </platform>
-      <platform name="android"> <resource-file src="google-services.json" target="/app/google-services.json" /> </platform>
+    <platform name="android">
+      <resource-file src="google-services.json" target="google-services.json" />
+    </platform>  
     <preference name="DisallowOverscroll" value="true" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
@@ -58,5 +60,5 @@
     <plugin name="cordova-plugin-spinner" spec="~1.1.0" />
     <engine name="android" spec="~6.3.0" />
     <plugin name="cordova-plugin-fcm" spec="~2.1.2" />
-    <plugin name="cordova-plugin-fcm-config" spec="cordova-plugin-fcm-config" />
+    
 </widget>
