@@ -93,6 +93,7 @@ ext {
 
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "cordova-support-google-services/api-build.gradle"
+apply from: "cordova-plugin-fcm/api-FCMPlugin.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -254,6 +255,8 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     debugCompile(project(path: "CordovaLib", configuration: "debug"))
     releaseCompile(project(path: "CordovaLib", configuration: "release"))
+    compile "com.google.firebase:firebase-core:+"
+    compile "com.google.firebase:firebase-messaging:+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

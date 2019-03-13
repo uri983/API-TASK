@@ -15,6 +15,14 @@ module.exports = [
     "clobbers": [
       "window.StatusBar"
     ]
+  },
+  {
+    "id": "cordova-plugin-fcm.FCMPlugin",
+    "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+    "pluginId": "cordova-plugin-fcm",
+    "clobbers": [
+      "FCMPlugin"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -24,7 +32,8 @@ module.exports.metadata =
   "cordova-plugin-spinner": "1.1.0",
   "cordova-plugin-statusbar": "1.0.1",
   "cordova-plugin-whitelist": "1.2.2",
-  "cordova-support-google-services": "1.3.1"
+  "cordova-support-google-services": "1.3.1",
+  "cordova-plugin-fcm": "2.1.2"
 };
 // BOTTOM OF METADATA
 });
