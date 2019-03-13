@@ -51,7 +51,7 @@
         <icon height="87" platform="ios" src="res/icons/ios/icon-small@3x.png" width="87" />
     </platform>
     <platform name="android">
-    <resource-file src="google-services.json" target="app/google-services.json" />
+    <resource-file src="google-services.json" target="google-services.json" />
     </platform>
     <!--<platform name="ios">
         <resource-file src="GoogleService-Info.plist" />
