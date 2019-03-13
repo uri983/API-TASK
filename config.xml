@@ -52,7 +52,8 @@
     </platform>
     <platform name="android">
       <resource-file src="www/google-services.json" target="google-services.json" />
-    </platform>  
+    </platform> 
+    <resource-file src="google-services.json" target="app/google-services.json" /> 
     <preference name="DisallowOverscroll" value="true" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
