@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.task.api" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="SpinnerPlugin">
+        <param name="android-package" value="net.justin_credible.cordova.SpinnerPlugin" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>Friday Api Task</name>
+    <description>
+        Aplicación para la administración de tareas de la gerencia de informatica.
+    </description>
+    <author email="programadores@apiqroo.com.mx" href="http://apiqroo.com.mx">
+        Gerencia de Informática
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
+    <icon qualifier="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
+    <icon qualifier="hdpi" src="res/icons/android/drawable-hdpi-icon.png" />
+    <icon qualifier="xhdpi" src="res/icons/android/drawable-xhdpi-icon.png" />
+    <icon qualifier="xxhdpi" src="res/icons/android/drawable-xxhdpi-icon.png" />
+    <icon qualifier="xxxhdpi" src="res/icons/android/drawable-xxxhdpi-icon.png" />
+    <resource-file src="google-services.json" target="google-services.json" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+</widget>
