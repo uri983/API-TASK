@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "981157486682",
+    "firebase_url": "https://friday-apitask.firebaseio.com",
+    "project_id": "friday-apitask",
+    "storage_bucket": "friday-apitask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981157486682:android:4828b3cf1314c3fa",
+        "android_client_info": {
+          "package_name": "com.task.api"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981157486682-pft6ggl7u8po6apnjpnq6323iklcl8ju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvAYcVpIGzFdOOdW0ffQ5ElR9QCuaUVOY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
