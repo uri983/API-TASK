@@ -56,7 +56,7 @@ var jTask = function () {
             var token = window.localStorage.user_token;
 
             $$.ajax({
-                url     : 'http://35.211.157.80/appmanager/api/projectmember/index',
+                url     : 'http://35.208.228.187/appmanager/api/projectmember/index',
                 method  : 'POST',
                 dataType: 'json',
                 headers : {"Authorization": "Bearer " + token,
@@ -124,7 +124,7 @@ var jTask = function () {
         var token = window.localStorage.user_token;
         
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/task/store',
+            url     : 'http://35.208.228.187/appmanager/api/task/store',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization": "Bearer " + token,
@@ -162,7 +162,7 @@ var jTask = function () {
         var userId = window.localStorage.user_id;
 
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/task/index',
+            url     : 'http://35.208.228.187/appmanager/api/task/index',
             method  : 'POST',
             dataType: 'json',
             headers : {"Authorization": "Bearer " + token,
@@ -244,7 +244,7 @@ var jTask = function () {
         var token = window.localStorage.user_token;
         
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/task/destroy',
+            url     : 'http://35.208.228.187/appmanager/api/task/destroy',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization" : "Bearer " + token,
@@ -276,7 +276,7 @@ var jTask = function () {
         var token = window.localStorage.user_token;
         SpinnerPlugin.activityStart("Cargando...");
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/task/show',
+            url     : 'http://35.208.228.187/appmanager/api/task/show',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization": "Bearer " + token,
@@ -315,7 +315,7 @@ var jTask = function () {
 
           
           $$.ajax({
-              url     : 'http://35.211.157.80/appmanager/api/file/store',
+              url     : 'http://35.208.228.187/appmanager/api/file/store',
               method  : 'POST',
               dataType: 'json',
               headers  : {"Authorization": "Bearer " + token,
@@ -352,7 +352,7 @@ var jTask = function () {
           var user_id = window.localStorage.user_id;
           
           $$.ajax({
-              url     : 'http://35.211.157.80/appmanager/api/comment/store',
+              url     : 'http://35.208.228.187/appmanager/api/comment/store',
               method  : 'POST',
               dataType: 'json',
               headers  : {"Authorization": "Bearer " + token,
@@ -390,7 +390,7 @@ var jTask = function () {
         var userId = window.localStorage.user_id;
 
           $$.ajax({
-              url     : 'http://35.211.157.80/appmanager/api/comment/index',
+              url     : 'http://35.208.228.187/appmanager/api/comment/index',
               method  : 'POST',
               dataType: 'json',
               headers : {"Authorization": "Bearer " + token,
@@ -438,7 +438,7 @@ var jTask = function () {
         var userId = window.localStorage.user_id;
 
           $$.ajax({
-              url     : 'http://35.211.157.80/appmanager/api/file/index',
+              url     : 'http://35.208.228.187/appmanager/api/file/index',
               method  : 'POST',
               dataType: 'json',
               headers : {"Authorization": "Bearer " + token,
@@ -542,7 +542,7 @@ var jTask = function () {
         var token = window.localStorage.user_token;
         
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/file/destroy',
+            url     : 'http://35.208.228.187/appmanager/api/file/destroy',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization" : "Bearer " + token,
@@ -609,7 +609,7 @@ var jTask = function () {
         var token = window.localStorage.user_token;
         
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/comment/destroy',
+            url     : 'http://35.208.228.187/appmanager/api/comment/destroy',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization" : "Bearer " + token,

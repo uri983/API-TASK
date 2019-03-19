@@ -11,6 +11,10 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="FCMPlugin">
+        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Friday Api Task</name>
     <description>
         Aplicación para la administración de tareas de la gerencia de informatica.
@@ -26,6 +30,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <resource-file src="google-services.json" target="app/google-services.json" />
     <allow-intent href="market:*" />
     <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
     <icon qualifier="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
@@ -33,12 +38,7 @@
     <icon qualifier="xhdpi" src="res/icons/android/drawable-xhdpi-icon.png" />
     <icon qualifier="xxhdpi" src="res/icons/android/drawable-xxhdpi-icon.png" />
     <icon qualifier="xxxhdpi" src="res/icons/android/drawable-xxxhdpi-icon.png" />
-    <resource-file src="google-services.json" target="google-services.json" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-    <feature name="FCMPlugin">
-        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
-        <param name="onload" value="true" />
-    </feature>
 </widget>

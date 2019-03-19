@@ -48,7 +48,7 @@ var jProyecto = function () {
 
 
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/project/index',
+            url     : 'http://35.208.228.187/appmanager/api/project/index',
             method  : 'POST',
             dataType: 'json',
             headers : {"Authorization": "Bearer " + token,
@@ -128,7 +128,7 @@ var jProyecto = function () {
         var token = window.localStorage.user_token;
         
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/project/store',
+            url     : 'http://35.208.228.187/appmanager/api/project/store',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization": "Bearer " + token,
@@ -162,7 +162,7 @@ var jProyecto = function () {
         var token = window.localStorage.user_token;
         SpinnerPlugin.activityStart("Cargando...");
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/project/show',
+            url     : 'http://35.208.228.187/appmanager/api/project/show',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization": "Bearer " + token,
@@ -235,7 +235,7 @@ var jProyecto = function () {
         var token = window.localStorage.user_token;
         
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/project/destroy',
+            url     : 'http://35.208.228.187/appmanager/api/project/destroy',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization" : "Bearer " + token,

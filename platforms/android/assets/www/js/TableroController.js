@@ -43,7 +43,7 @@ var jTablero = function () {
         var token = window.localStorage.user_token;
         
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/board/store',
+            url     : 'http://35.208.228.187/appmanager/api/board/store',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization": "Bearer " + token,
@@ -75,7 +75,7 @@ var jTablero = function () {
         var token = window.localStorage.user_token;
         var userId = window.localStorage.user_id;
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/board/index',
+            url     : 'http://35.208.228.187/appmanager/api/board/index',
             method  : 'POST',
             dataType: 'json',
             headers : {"Authorization": "Bearer " + token,
@@ -168,7 +168,7 @@ var jTablero = function () {
         var token = window.localStorage.user_token;
         SpinnerPlugin.activityStart("Cargando...");
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/board/show',
+            url     : 'http://35.208.228.187/appmanager/api/board/show',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization": "Bearer " + token,
@@ -202,7 +202,7 @@ var jTablero = function () {
         var token = window.localStorage.user_token;
         
         $$.ajax({
-            url     : 'http://35.211.157.80/appmanager/api/board/destroy',
+            url     : 'http://35.208.228.187/appmanager/api/board/destroy',
             method  : 'POST',
             dataType: 'json',
             headers  : {"Authorization" : "Bearer " + token,
